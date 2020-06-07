@@ -1,0 +1,43 @@
+.title {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  font-size: 80px;
+}
+.social-medias {
+  position: absolute;
+  
+  top: 250px;
+  left: 50%;
+  width: 500px;
+  transform: translateX(-50%);
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.social-media {
+  display: flex;
+  align-items: center;
+}
+.youtube-text {
+  margin-left: 11px;
+}
+.discord-text {
+  margin-left: 5px;
+}
+.github-text {
+  margin-left: 11px;
+}
+.youtube-icon {
+  width: 40px;
+}
+.discord-icon {
+  width: 50px;
+}
+.github-icon {
+  width: 40px;
+}
