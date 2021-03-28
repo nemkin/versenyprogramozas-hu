@@ -1,6 +1,11 @@
 title: Versenyprogramozás
 description: Algoritmuselmélet, programozási versenyek (ACM-ICPC, Google Code Jam, ...).
+logo:
+google_analytics:
+
 github_link: https://github.com/versenyprogramozas
 youtube_link: https://www.youtube.com/channel/UCuL_AjPTt_RkATRRzVNZfAQ
 discord_link: https://discord.gg/B2ecH76
+show_downloads: false
+
 theme: jekyll-theme-cayman
