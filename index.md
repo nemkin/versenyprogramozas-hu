@@ -1,8 +1,4 @@
-Versenyprogramozás
-------------------
+Blog
+----
 
-[Youtube](https://www.youtube.com/channel/UCuL_AjPTt_RkATRRzVNZfAQ)
-
-[Github](https://github.com/versenyprogramozas)
-
-[Discord](https://discord.gg/B2ecH76)
+- [Google Code Jam 2021: Qualification Round](./blog/2021_03_28_google_code_jam_qualification_round.html).
