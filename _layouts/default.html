@@ -23,8 +23,8 @@
   </head>
   <body>
     <header class="page-header" role="banner">
-      <a href="{{ site.url }}"><h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1></a>
-      <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+      <a href="{{ site.url }}"><h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1></a>
+      <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
       {% if site.github_link %}
         <a href="{{ site.github_link }}" class="btn">GitHub</a>
       {% endif %}
