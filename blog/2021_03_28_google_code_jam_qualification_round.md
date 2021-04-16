@@ -22,12 +22,12 @@ Ez az operációa listának egy összefüggő részét tudja megfordítani, a k�
 
 (A tömbök indexelése 1-től kezdődik.)
 
-```
+{% highlight %}
 Reversort(L):
   for i := 1 to len(L) - 1
     j := L[i..]-ben a minimum érték indexe
     Reverse(L[i..j])
-```
+{% endhighlight %}
 
 A fenti kód végigiterál a tömbön és minden lépésben az aktuális pozíción lévő számot kicseréli a még hátralévő tömbben lévő minimális számmal, mindezt úgy, hogy a közöttük lévő számokat is fordított sorrendbe teszi, megfordítja ezt az egész listarészt.
 
