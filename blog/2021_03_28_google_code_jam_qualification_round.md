@@ -9,7 +9,7 @@ Az idei feladatsor a következő volt:
 - [Median Sort](https://codingcompetitions.withgoogle.com/codejam/round/000000000043580a/00000000006d1284) (7, 11, 10 pont)
 - [Cheating Detection](https://codingcompetitions.withgoogle.com/codejam/round/000000000043580a/00000000006d1155) (11, 20 pont)
 
-Nézzük meg hogyan lehetett továbbjutni... :)
+Nézzük meg, hogyan lehetett továbbjutni a következő fordulóba!
 
 1\. Feladat: Reversort
 ----------------------
@@ -181,4 +181,4 @@ for z_i in range(z):
   print(f"Case #{z_i+1}: {st}")
 {% endhighlight %}
 
-Ezzel szereztünk összesen 18 pontot, a többi feladattal együtt ez 41 pont. Minden teszthalmaz, amit beküldtünk Visible Verdict-es volt, ezért biztosak lehetünk benne, hogy be is jutottunk a következő fordulóba! :)
+Ezzel szereztünk összesen 18 pontot, a többi feladattal együtt ez 41 pont. Minden teszthalmaz, amit beküldtünk Visible Verdict-es volt, ezért biztosak lehetünk benne, hogy be is jutottunk a következő fordulóba!
