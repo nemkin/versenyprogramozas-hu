@@ -127,10 +127,27 @@ Ez az a feladat ami ugyanúgy indul mint a Reversort, azonban most felcserélőd
 
 Az első teszthalmaznál a lista hossza legfeljebb 7 lehet. Ez azért nagyon kényelmes, mert a 7!=5040 lehetséges sorrendet végig tudjuk próbálgatni egyesével, mindegyiken lefuttatni az 1. feladatra adott megoldásunkat és ahol az ottani cost egyezik az inputon megadottal, azt a sorrendet kiírni. Ha nincs ilyen, akkor pedig azt, hogy IMPOSSIBLE. Ez a teszthalmaz 7 pontot ér, nekünk pont ennyire van szükségünk, ezért ezzel a megoldással tulajdonképpen készen is vagyunk, itt befejezhetjük a versenyt.
 
-A második teszthalmaz már nehezebb, itt legfeljebb 100 lehet a lista hossza, 100! esetre már biztosan nem fog a brute force algoritmus időben lefutni. Mivel még volt elég sok idő vissza a versenyből, ezért úgy döntöttem, hogy kíváncsiságból megpróbálom ezt a tesztesetet is megoldani.
+A második teszthalmaz már nehezebb, itt legfeljebb 100 lehet a lista hossza, 100! esetre már biztosan nem fog a brute force algoritmus időben lefutni. Mivel még volt elég sok idő vissza a versenyből, ezért úgy döntöttem, hogy kíváncsiságból megpróbálom ezt a teszthalmazt is megoldani.
 
-A megoldás kulcsa az, hogy visszafele gondolkozunk: kiindulunk az N hosszú rendezett listából és lépésenként keverjük össze, miközben számon tartjuk hogy mennyi costot használtunk el eddig a keveréshez.
+A megoldás kulcsa az, hogy visszafele gondolkozunk: kiindulunk a végeredményből, az N hosszú rendezett listából, visszafele iterálunk rajta és lépésenként "visszaforgatunk" benne általunk választott hosszúságú résztömböket, amíg el nem érünk a kiindulási, összekevert listába. Ha úgy választjuk meg a résztömbök hosszait, hogy azoknak az összege pont kiadja a costot, akkor a kapott tömb a megoldás lesz. (Meg itt persze menet közben észre kell venni, ha lehetetlen a feladat.)
 
+Az első megfigyelés az az, hogy minden lépésben legalább 1 costot el fogunk használni, mivel azt írja a feladat, hogy ha pont az aktuális pozíción van a legkisebb elem, akkor is "megfordítjuk" azt az egyelemű részt. Mivel ez az n-1 darab pozíción biztosan fel fog merülni költségként, ezért érdemes ezt már az elején levonni (lekönyvelni), hogy a további számolások során ne történhessen meg az, hogy minden costot elhasználtunk de még nem értünk el a lista elejére.
+
+Ennek a következménye, hogy a k hosszú lista megfordításának költsége innentől kezdve k-1 lesz, mert azt az 1-et már lekönyveltük.
+
+A következő megfigyelés pedig az, hogy hátulról visszafele adott pozíciókban a következő costokból választhatok:
+
+(Itt a tömböt 0...n-1 -el indexeljük, a Reversort a tömb utolsó elemére nem fut le, ezért visszafele az n-2. indexnél kezdünk.)
+
+- n-2. index: 0, ha az n-2. elemet helyben forgatom és 1, ha az n-2. és n-1. elemeket megcserélem.
+- n-3. index: 0,1,2, hasonlóan.
+- n-4. index: 0,1,2,3, hasonlóan.
+...
+- 0. index: 0,1,...,n-1.
+
+A feladat tehát az, hogy a megadott costot rakjuk össze összegként úgy, hogy a fenti lépésekben mindenhol 1 számot választhatunk. Mivel minden lépésben tudunk bármilyen kicsi számot választani, ezért jó stratégia minden iterációban a maximumot választani, hogy minnél jobban csökkenjen a cost, kivéve ha azzal túllőnénk. Amennyiben a listában szereplő maximális érték már több, mint a hátralévő cost, akkor a cost-al egyenlő értéket választjuk ki a listából (ilyen biztosan van), a hátralévő iterációkban pedig mindig 0-t.
+
+Ezt az algoritmust implementáltam Pythonban:
 ```Python
 z = int(input())
 for z_i in range(z):
