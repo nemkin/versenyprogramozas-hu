@@ -157,7 +157,9 @@ z = int(input())
 for z_i in range(z):
   # Teszteset 1. sora: elvárt lista hossza, elvárt cost értéke.
   n, c = map(int, input().split(' '))
+  
   # Itt gyorsan kizárjuk a lehetetlen eseteket:
+  
   # Tudjuk, hogy a minimális cost n-1, ha ennél kevesebb a cél,
   # akkor az lehetetlen.
   if c < n-1:
@@ -177,8 +179,10 @@ for z_i in range(z):
   # Ezen a ponton biztosan van megoldás:
   # Lekönyveljük a biztos n-1 költséget.
   c -= (n-1)
+  
   # Itt először előre kiszámolom a costokat (ez egyébként nem szükséges,
   # menet közben is lehetne):
+  
   # Ebben fogom tárolni, hogy az adott kezdőindexhez hol van a forgatandó
   # résztömb vége.
   torev = list(range(n))
@@ -194,8 +198,10 @@ for z_i in range(z):
     torev[i] = i + j
     # Csökkentem a costot az ebben az iterációban elkönyvelt értékkel.
     c -= j
+    
   # Itt pedig visszafele lejátszom a fent kiszámolt forgatásokat és
   # legenerálom a kiindulási tömböt:
+  
   # Kiindulunk az n hosszú rendezett listából (ez 0 és n-1 közötti
   # számokat tartalmaz, kiírásnál adok hozzá 1-et).
   l = list(range(1,n+1))
@@ -205,7 +211,9 @@ for z_i in range(z):
     j = torev[i]
     # Még több +1/-1 fejfájás.
     l[i:j+1] = reversed(l[i:j+1])
+    
   # Eredmény kiírása:
+  
   st = " ".join(map(str, l))
   print(f"Case #{z_i+1}: {st}")
 {% endhighlight %}
