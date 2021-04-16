@@ -1,4 +1,4 @@
-# Bevezető
+# Google Code Jam 2021 - Qualification Round
 
 Pár hete zajlott le a 2021-es Google Code Jam [Qualification Round](https://codingcompetitions.withgoogle.com/codejam/round/000000000043580a)-ja! Ennek a fordulónak a hossza 30 óra, így bármelyik időzónában is élünk a világban, bőven van 1 teljes napunk megoldani a feladatokat. A továbbjutáshoz 30 pontot kell szerezni, ennek az összeszedéséhez a szokásos módon nem volt szükség az összes feladat megoldására.
 
@@ -221,3 +221,5 @@ for z_i in range(z):
 Itt sokféleképpen lehetne számolni, tulajdonképpen az n-1 előre lekönyvelése sem szükséges, menet közben is észre lehetne venni ha kifogytunk a megengedett costból. Ezen a kódon még sokat lehetne egyszerűsíteni. :)
 
 Ezzel szereztünk összesen 18 pontot, a többi feladattal együtt ez 41 pont. Minden teszthalmaz, amit beküldtünk Visible Verdict-es volt, ezért biztosak lehetünk benne, hogy be is jutottunk a következő fordulóba!
+
+A forráskódok (kommentezés nélkül) megtalálhatóak a [versenyprogramozas/solutions](https://github.com/versenyprogramozas/solutions/tree/master/google/codejam/2021/00_qualification_round) reposiositoryban.
