@@ -1,6 +1,6 @@
 # Bevezető
 
-Pár hete zajlott le a 2021-es Google Code Jam [Qualification Round](https://codingcompetitions.withgoogle.com/codejam/round/000000000043580a)-ja! Ennek a fordulónak a hossza 30 óra, így bármelyik időzónában élünk is a világban, bőven van 1 teljes napunk megoldani a feladatokat. A továbbjutáshoz 30 pontot kell szerezni, ennek az összeszedéséhez a szokásos módon nem volt szükség az összes feladat megoldására.
+Pár hete zajlott le a 2021-es Google Code Jam [Qualification Round](https://codingcompetitions.withgoogle.com/codejam/round/000000000043580a)-ja! Ennek a fordulónak a hossza 30 óra, így bármelyik időzónában is élünk a világban, bőven van 1 teljes napunk megoldani a feladatokat. A továbbjutáshoz 30 pontot kell szerezni, ennek az összeszedéséhez a szokásos módon nem volt szükség az összes feladat megoldására.
 
 Az idei feladatsor a következő volt:
 - [Reversort](https://codingcompetitions.withgoogle.com/codejam/round/000000000043580a/00000000006d0a5c) (7 pont)
@@ -9,7 +9,7 @@ Az idei feladatsor a következő volt:
 - [Median Sort](https://codingcompetitions.withgoogle.com/codejam/round/000000000043580a/00000000006d1284) (7, 11, 10 pont)
 - [Cheating Detection](https://codingcompetitions.withgoogle.com/codejam/round/000000000043580a/00000000006d1155) (11, 20 pont)
 
-Nézzük meg, hogyan lehetett továbbjutni a következő fordulóba!
+Nézzük meg, hogy hogyan lehetett továbbjutni a következő fordulóba!
 
 1\. Feladat: Reversort
 ----------------------
@@ -18,7 +18,7 @@ Nézzük meg, hogyan lehetett továbbjutni a következő fordulóba!
 
 A Reversort egy olyan algoritmus, ami egy listát tud növekvő sorrendbe állítani, a "Reverse" operáció használatával.
 
-Ez az operációa listának egy összefüggő részét tudja megfordítani, a következő pszeudokód alapján:
+Ez az operáció a listának egy összefüggő részét tudja megfordítani, a következő pszeudokód alapján:
 
 (A tömbök indexelése 1-től kezdődik.)
 
@@ -29,21 +29,21 @@ Reversort(L):
     Reverse(L[i..j])
 {% endhighlight %}
 
-A fenti kód végigiterál a tömbön és minden lépésben az aktuális pozíción lévő számot kicseréli a még hátralévő tömbben lévő minimális számmal, mindezt úgy, hogy a közöttük lévő számokat is fordított sorrendbe teszi, megfordítja ezt az egész listarészt.
+A fenti kód végigiterál a tömbön és minden lépésben az aktuális pozíción lévő számot kicseréli a még hátralévő tömbben lévő minimális számmal, mindezt úgy, hogy a közöttük lévő számokat is fordított sorrendbe teszi, tehát megfordítja ezt az egész listarészt.
 
 Látható, hogy az iteráció végén a tömbben lévő számok növekvő sorrendben fognak állni.
 
-Ez az algoritmus eléggé pazarló, a feladat az, hogy kiszámoljuk hogy mennyire. A bemeneten kapunk egy listát, össze-vissza sorrendben, nekünk pedig össze kell adni iterációnként a megfordított listák hosszait és ezt az összeget kiírni a kimenetre.
+Ez az algoritmus eléggé pazarló, a feladat az, hogy kiszámoljuk hogy mennyire. A bemeneten kapunk egy listát, össze-vissza sorrendben, nekünk pedig össze kell adni (az erre lefuttatott algoritmusban) iterációnként a megfordított listák hosszait és ezt az összeget kiírni a kimenetre.
 
 **Megoldás**
 
-Egyetlen teszthalmaz van, ami rögtön látszik rajta, hogy nagyon kicsi: T=100 db teszteset, legfeljebb N=100 db számmal a listában. Ha a fenti algoritmust megnézzük, nagy vonalakban ~N-szer hajtja végre a ciklust, belül a minimum megtalálása ~N lépés, a string megfordítása szintén ~N lépés, tehát ~2\*N^2=20000 lépésben fut. Fontos tudni, hogy 1 mp körülbelül 10^7 - 10^8 darab utasításnak felel meg programozási versenyeken, tehát bőven 1 mp alatt vagyunk. A teszthalmazra 10 mp time limit van és 1 GB memóriát használhatunk, mindkettőbe bele fogunk férni az implementációval.
+Egyetlen teszthalmaz van, ami rögtön látszik rajta, hogy nagyon kicsi: T=100 db teszteset, legfeljebb N=100 db számmal a listában. Ha a fenti algoritmust megnézzük, nagy vonalakban ~N-szer hajtja végre a ciklust, belül a minimum megtalálása ~N lépés, a string megfordítása szintén ~N lépés, tehát ~2\*N^2=2\*10^4 lépésben fut. Fontos tudni, hogy 1 mp körülbelül 10^7 ~ 10^8 db utasításnak felel meg programozási versenyeken, tehát bőven 1 mp alatt vagyunk. A teszthalmazra 10 mp time limit van és 1 GB memóriát használhatunk, mindkettőbe bele fogunk férni ha csak lekódoljuk a fenti pszeudokódot.
 
 Érdemes tehát ezt a feladatot megcsinálni, mert:
 - 7 pontot ad, ez a 30-ból elég sok.
-- Csak a megadott pszeudokódot kell lekódolni, várhatóan gyorsan elkészülünk.
+- Csak a megadott pszeudokódot kell egy konkrét programozási nyelvre lefordítani, várhatóan gyorsan elkészülünk.
 - Azonnal látható az eredményünk (Visible Verdict), biztosan tudhatjuk hogy megkaptuk a 7 pontot.
-- A feladat szövege írja, hogy egy későbbi feladat ehhez nagyon hasonló, 2 legyet ütünk egy csapásra ha foglalkozunk ezzel.
+- A feladat szövege írja, hogy egy későbbi feladat ehhez nagyon hasonló, lehet hogy 2 legyet ütünk egy csapásra ha foglalkozunk most ezzel.
 
 Nyelvnek a Pythont választottam a tömörsége és a pszeudokódhoz hasonló szintaxisa miatt. Programozási versenyeken C++ és Python között szoktam választani, attól függően hogy mennyire szűk az időkorlát a teszteseteken. Itt most nem volt az, ezért jó választás a Python.
 
@@ -75,9 +75,9 @@ A sztoritól eltekintve annyi a feladat, hogy kapunk egy stringet, ami C, J ille
 
 **Megoldás**
 
-A három teszthalmazból az 1. (5 pontért) nagyon pici, legfeljebb 10 hosszú lehet a string, itt a max ~2^10 darab összes esetet is végig tudnánk próbálgatni. Ha olyan helyzetben lennénk, hogy a többi feladatok közül már megoldottunk párat és pont ez az 5 pont hiányzik a 30-ból, akkor itt érdemes ennyit lekódolni és nem foglalkozni a többi tesztesettel.
+A három teszthalmazból az 1. (5 pontért) nagyon pici, legfeljebb 10 hosszú lehet a string, itt a max ~2^10 db összes esetet is végig tudnánk próbálgatni. Ha olyan helyzetben lennénk, hogy a többi feladat közül már megoldottunk párat és pont ez az 5 pont hiányzik a 30-ból, akkor itt érdemes ennyit lekódolni és nem foglalkozni a többi tesztesettel.
 
-A 2. teszthalmaz (11 pontért) már legfeljebb 1000 hosszú stringeket tartalmaz, a 2^1000 eset az 2^4=16>10-el alulról becsülve 10^250 darab lenne, ami még akkor is nagyon sok ha 1 lépésben végezni tudnánk vele. Itt már nem lehet brute force algoritmust adni, hanem gondolkozni is kell, viszont 11 pontért érdemes lehet foglalkozni vele.
+A 2. teszthalmaz (11 pontért) már legfeljebb 1000 hosszú stringeket tartalmaz, a 2^1000 db eset (2^4 = 16 > 10) alulról becsülve 10^250 darab lenne, ami még akkor is nagyon sok ha 1 lépésben végezni tudnánk 1-1 esettel. Itt már nem lehet brute force algoritmust adni, hanem gondolkozni is kell, viszont 11 pontért érdemes lehet foglalkozni vele.
 
 A 3. teszthalmaz (1 pontért) azonban nagyon nem szimpatikus. Csak 1 pontot ér, de a súlyok között negatív értékek is megjelenhetnek, amiket teljesen ellentétes módon kell kezelni (maximalizálni kell a darabszámot minimalizálás helyett), a stringek hossza szintén 1000, tehát brute force algoritmust sem adhatunk és mindemellett még Hidden Verdict-es is, tehát nem is fogjuk tudni azonnal, hogy sikerült-e. Ez az a teszteset amivel nem érdemes foglalkozni, csak ha a 2. teszthalmaz megoldása közben eszünkbe jut valami gyors erre is, egyébként csak az időnket vesztegetnénk.
 
@@ -95,7 +95,7 @@ for n_i in range(n):
   print(f"Case #{n_i+1}: {x*xc + y*yc}")
 {% endhighlight %}
 
-Ha minimalizálni szeretnénk a CJ-k és a JC-k darabszámát, akkor tulajdonképpen a váltakozásokat szeretnénk minimalizálni. Ha egyszerűen végigmegyek balról-jobbra a stringen és minden ? helyére beírom a tőle balra lévő karaktert (aki már nem lehet ?, mert az előző lépésben biztosan átírtam), illetve ha ? sorozattal kezdődik a string, akkor azok helyére balról az első nem-? karaktert, akkor pont egy ilyen minimalizált megoldást kapok. Majd ebben a C-kből és J-kből álló stringben kell megszámolni a CJ és JC részstringeket és kiírni a súlyozott összeget. Ez egy jó megoldás lenne.
+Ha minimalizálni szeretnénk a CJ-k és a JC-k darabszámát, akkor tulajdonképpen a váltakozásokat szeretnénk minimalizálni. Ha egyszerűen végigmegyek balról-jobbra a stringen és minden ? helyére beírom a tőle balra lévő karaktert (aki már nem lehet ?, mert az előző lépésben biztosan átírtam), illetve ha ? sorozattal kezdődik a string, akkor azok helyére balról az első nem-? karaktert, akkor pont egy ilyen minimalizált megoldást kapok. Ebben a C-kből és J-kből álló stringben kell megszámolni a CJ és JC részstringeket és kiírni a súlyozott összeget: ez egy jó megoldás lenne.
 
 Viszont ennél sokkal egyszerűbb csak törölni a ?-eket, hiszen a fenti módszer csak annyit csinál, hogy a ?-ek helyére "elcsúsztatja" valamelyik oldalról az első nem ? karaktert, tehát új váltakozást nem fog bevezetni, csak a meglévőket húzza össze egymás mellé.
 
@@ -130,9 +130,9 @@ Az első teszthalmaznál a lista hossza legfeljebb 7 lehet. Ez azért nagyon ké
 
 A második teszthalmaz már nehezebb, itt legfeljebb 100 lehet a lista hossza, 100! esetre már biztosan nem fog a brute force algoritmus időben lefutni. Mivel még volt elég sok idő vissza a versenyből, ezért úgy döntöttem, hogy kíváncsiságból megpróbálom ezt a teszthalmazt is megoldani.
 
-A megoldás kulcsa az, hogy visszafele gondolkozunk: kiindulunk a végeredményből, az N hosszú rendezett listából, visszafele iterálunk rajta és lépésenként "visszaforgatunk" benne általunk választott hosszúságú résztömböket, amíg el nem érünk a kiindulási, összekevert listába. Ha úgy választjuk meg a résztömbök hosszait, hogy azoknak az összege pont kiadja a costot, akkor a kapott tömb a megoldás lesz. (Meg itt persze menet közben észre kell venni, ha lehetetlen a feladat.)
+A megoldás kulcsa az, hogy visszafele gondolkozunk: kiindulunk a végeredményből, az N hosszú rendezett listából, visszafele iterálunk rajta és lépésenként "visszaforgatunk" benne általunk választott hosszúságú résztömböket, amíg el nem érünk a kiindulási, összekevert listába. Ha úgy választjuk meg a résztömbök hosszait, hogy azoknak az összege pont kiadja a costot, akkor a kapott kiindulási tömb a megoldás lesz. (Meg itt persze menet közben észre kell venni, ha lehetetlen a feladat.)
 
-Az első megfigyelés az az, hogy minden lépésben legalább 1 costot el fogunk használni, mivel azt írja a feladat, hogy ha pont az aktuális pozíción van a legkisebb elem, akkor is "megfordítjuk" azt az egyelemű részt. Mivel ez az n-1 darab pozíción biztosan fel fog merülni költségként, ezért érdemes ezt már az elején levonni (lekönyvelni), hogy a további számolások során ne történhessen meg az, hogy minden costot elhasználtunk de még nem értünk el a lista elejére.
+Az első megfigyelés az az, hogy minden lépésben legalább 1 costot el fogunk használni, mivel azt írja a feladat, hogy ha pont az aktuális pozíción van a legkisebb elem, akkor is "megfordítjuk" azt az egyelemű részt. Mivel ez az n-1 db pozíción biztosan fel fog merülni költségként, ezért érdemes ezt már az elején levonni (lekönyvelni), hogy a további számolások során ne történhessen meg az, hogy minden costot elhasználtunk de még nem értünk el a lista elejére.
 
 Ennek a következménye, hogy a k hosszú lista megfordításának költsége innentől kezdve k-1 lesz, mert azt az 1-et már lekönyveltük.
 
@@ -197,5 +197,7 @@ for z_i in range(z):
   st = " ".join(map(str, l))
   print(f"Case #{z_i+1}: {st}")
 {% endhighlight %}
+
+Itt sokféleképpen lehetne számolni, tulajdonképpen az n-1 előre lekönyvelése sem szükséges, menet közben is észre lehetne venni ha kifogytunk a megengedett costból. Ezen a kódon még sokat lehetne egyszerűsíteni. :)
 
 Ezzel szereztünk összesen 18 pontot, a többi feladattal együtt ez 41 pont. Minden teszthalmaz, amit beküldtünk Visible Verdict-es volt, ezért biztosak lehetünk benne, hogy be is jutottunk a következő fordulóba!
