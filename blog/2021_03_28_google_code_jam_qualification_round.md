@@ -181,4 +181,4 @@ for z_i in range(z):
   print(f"Case #{z_i+1}: {st}")
 {% endhighlight %}
 
-Ezzel szereztünk összesen 18 pontot, a többi feladattal együtt ez 41 pont. Minden teszthalmaz, amit beküldtünk Visible Verdict-es volt, ezért ezzel be is jutottunk a következő fordulóba! :)
+Ezzel szereztünk összesen 18 pontot, a többi feladattal együtt ez 41 pont. Minden teszthalmaz, amit beküldtünk Visible Verdict-es volt, ezért biztosak lehetünk benne, hogy be is jutottunk a következő fordulóba! :)
