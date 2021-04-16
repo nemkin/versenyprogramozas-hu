@@ -147,30 +147,50 @@ A következő megfigyelés pedig az, hogy hátulról visszafele adott pozíciók
 
 A feladat tehát az, hogy a megadott costot rakjuk össze összegként úgy, hogy a fenti lépésekben mindenhol 1 számot választhatunk. Mivel minden lépésben tudunk bármilyen kicsi számot választani, ezért jó stratégia minden iterációban a maximumot választani, hogy minnél jobban csökkenjen a cost, kivéve ha azzal túllőnénk. Amennyiben a listában szereplő maximális érték már több, mint a hátralévő cost, akkor a cost-al egyenlő értéket választjuk ki a listából (ilyen biztosan van), a hátralévő iterációkban pedig mindig 0-t.
 
+
+```Python
+n = int(input()) 
+for n_i in range(n):
+  cost = 0
+  m = int(input()) 
+  l = list(map(int, input().split(' '))) # Teszteset 2. sora: maga a lista
+  # Itt kezdődik a Reversort
+  for i in range(m-1):
+    j = l.index(min(l[i:m])) # Legkisebb elem megkeresése a hátralévő tömbben.
+    cost += j-i+1 # Résztömb hosszának hozzáadása a végleges költséghez.
+    l[i:j+1] = reversed(l[i:j+1]) # Résztömb megfordítása.
+  print(f"Case #{n_i+1}: {cost}") # Eredmény kiírása megfelelő formátumban.
+```
+
 Ezt az algoritmust implementáltam Pythonban:
 ```Python
-z = int(input())
+z = int(input()) # Input 1. sora: tesztesetek száma
 for z_i in range(z):
-  n, c = map(int, input().split(' '))
-  if c < n-1: 
+  n, c = map(int, input().split(' ')) # Teszteset 1. sora: elvárt lista hossza, elvárt cost értéke.
+  # Itt gyorsan kizárjuk a lehetetlen eseteket:
+  if c < n-1: # Tudjuk, hogy a minimális cost n-1, ha ennél kevesebb a cél, akkor az lehetetlen.
     print(f"Case #{z_i+1}: IMPOSSIBLE")
     continue
-  if n*(n+1)/2-1 < c:
+  if n*(n+1)/2-1 < c: # A maximális cost minden lépésben a legnagyobb számot választani, ami az N,...,2 számok összege (1 nincs, mert az utolsó elemre nem fut le a Reversort).
     print(f"Case #{z_i+1}: IMPOSSIBLE")
     continue
-  if n == 1:
+  if n == 1: # A teszthalmazok leírásában benne van, hogy 2<n, ez itt felesleges, csak nem vettem észre.
     print(f"Case #{z_i+1}: 1")
     continue
-  c -= (n-1)
-  torev = list(range(n))
-  for i in range(n-1):
-    j = min(n-1-i, c)
-    torev[i] = i + j
-    c -= j
-  l = list(range(1,n+1))
-  for i in range(n-2,-1,-1):
-    j = torev[i]
-    l[i:j+1] = reversed(l[i:j+1])
+  # Ezen a ponton biztosan van megoldás:
+  c -= (n-1) # Lekönyveljük a biztos n-1 költséget.
+  # Itt először előre kiszámolom a costokat (ez egyébként nem szükséges, menet közben is lehetne):
+  torev = list(range(n)) # Ebben fogom tárolni, hogy az adott kezdőindexhez hol van a forgatandó résztömb vége.
+  for i in range(n-1): # Itt előrefele megyek, majd a forgatásos ciklusban szükséges csak visszafele menni.
+    j = min(n-1-i, c) # Itt kiszámolom, hogy ebben a körben mennyi costot tudok elkönyvelni (vagy a leghosszabb lehetséges résztömb hosszát, vagy ha az túl sok, akkor a teljes hátralévő costot el tudom könyvelni).
+    torev[i] = i + j # Elmentem hol van a forgatott résztömb vége. Itt a +1/-1-eken kell egy kicsit agyalni, de így jön ki jól.
+    c -= j # Csökkentem a costot az ebben az iterációban elkönyvelt értékkel.
+  # Itt pedig visszafele lejátszom a fent kiszámolt forgatásokat és legenerálom a kiindulási tömböt:
+  l = list(range(1,n+1)) # Kiindulunk az n hosszú rendezett listából (ez 0 és n-1 közötti számokat tartalmaz, kiírásnál adok hozzá 1-et).
+  for i in range(n-2,-1,-1): # i=n-2...0
+    j = torev[i] # Forgatandó lista vége.
+    l[i:j+1] = reversed(l[i:j+1]) # Még több +1/-1 fejfájás.
+  # Eredmény kiírása:
   st = " ".join(map(str, l))
   print(f"Case #{z_i+1}: {st}")
 ```
