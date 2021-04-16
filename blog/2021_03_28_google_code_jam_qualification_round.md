@@ -143,7 +143,9 @@ A következő megfigyelés pedig az, hogy hátulról visszafele adott pozíciók
 - n-2. index: 0, ha az n-2. elemet helyben forgatom és 1, ha az n-2. és n-1. elemeket megcserélem.
 - n-3. index: 0,1,2, hasonlóan.
 - n-4. index: 0,1,2,3, hasonlóan.
+
 ...
+
 - 0. index: 0,1,...,n-1.
 
 A feladat tehát az, hogy a megadott costot rakjuk össze összegként úgy, hogy a fenti lépésekben mindenhol 1 számot választhatunk. Mivel minden lépésben tudunk bármilyen kicsi számot választani, ezért jó stratégia minden iterációban a maximumot választani, hogy minnél jobban csökkenjen a cost, kivéve ha azzal túllőnénk. Amennyiben a listában szereplő maximális érték már több, mint a hátralévő cost, akkor a cost-al egyenlő értéket választjuk ki a listából (ilyen biztosan van), a hátralévő iterációkban pedig mindig 0-t.
