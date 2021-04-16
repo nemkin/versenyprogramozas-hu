@@ -12,7 +12,7 @@ Az idei feladatsor a következő volt:
 Nézzük hogyan lehet továbbjutni... :)
 
 1\. Feladat
-----------
+-----------
 
 **Feladatkiírás**
 
@@ -64,8 +64,62 @@ for n_i in range(n):
 
 Látszik, hogy a Reversort pszeudokódját szinte csak le kellett fordítani Python nyelvre és készen is volt a feladat. Az indexekkel kellett csak egy kicsit küzdeni, mire kijöttek jól (tanulság: Pythonban minden beépített függvénynél balról zárt, jobbról nyílt az összes intervallum), illetve a list.index és a reversed függvényt eddig nem ismertem, ezekre rá kellett keresni.
 
+Ezzel szereztünk 7 pontot, még 23 pontra van szükségünk.
 
-2. Feladat
+2\. Feladat
+-----------
 
+**Feladatkiírás**
 
-3. Feladat
+A sztoritól eltekintve annyi a feladat, hogy kapunk egy stringet, ami C, J illetve ? karaktereket tartalmaz, a ? karakterek helyére kell úgy C és J karaktereket írni, hogy a kapott stringben a lehető legkevesebb legyen a CJ és a JC részstringek darabszámának a súlyozott összege. A CJ-k darabszámát X-el, a JC-k darabszámát Y-al súlyozzuk, ezeket a paramétereket szintén az inputon kapjuk meg.
+
+**Megoldás**
+
+A három teszthalmazból az 1. (5 pontért) nagyon pici, legfeljebb 10 hosszú lehet a string, itt a max ~2^10 darab összes esetet is végig tudnánk próbálgatni. Ha olyan helyzetben lennénk, hogy a többi feladatok közül már megoldottunk párat és pont ez az 5 pont hiányzik a 30-ból, akkor itt érdemes ennyit lekódolni és nem foglalkozni a többi tesztesettel.
+
+A 2. teszthalmaz (11 pontért) már legfeljebb 1000 hosszú stringeket tartalmaz, a 2^1000 eset az 2^4=16>10-el alulról becsülve 10^250 darab lenne, ami még akkor is nagyon sok ha 1 lépésben végezni tudnánk vele. Itt már nem lehet brute force algoritmust adni, hanem gondolkozni is kell, viszont 11 pontért érdemes lehet foglalkozni vele.
+
+A 3. teszthalmaz (1 pontért) azonban nagyon nem szimpatikus. Csak 1 pontot ér, de a súlyok között negatív értékek is megjelenhetnek, amiket teljesen ellentétes módon kell kezelni (maximalizálni kell a darabszámot minimalizálás helyett), a stringek hossza szintén 1000, tehát brute force algoritmust sem adhatunk és mindemellett még Hidden Verdict-es is, tehát nem is fogjuk tudni azonnal, hogy sikerült-e. Ez az a teszteset amivel nem érdemes foglalkozni, csak ha a 2. teszthalmaz megoldása közben eszünkbe jut valami gyors erre is, egyébként csak az időnket vesztegetnénk.
+
+Az első két teszthalmazra a következő Python kódot adtam be:
+```Python
+n = int(input())
+for n_i in range(n):
+  x, y, m = input().split()
+  x = int(x)
+  y = int(y)
+  m = m.replace('?', '')
+  xc = m.count('CJ')
+  yc = m.count('JC')
+  print(f"Case #{n_i+1}: {x*xc + y*yc}")
+```
+
+Ha minimalizálni szeretnénk a CJ-k és a JC-k darabszámát, akkor tulajdonképpen a váltakozásokat szeretnénk minimalizálni. Ha egyszerűen végigmegyek balról-jobbra a stringen és minden ? helyére beírom a tőle balra lévő karaktert (aki már nem lehet ?, mert az előző lépésben biztosan átírtam), illetve ha ? sorozattal kezdődik a string, akkor azok helyére balról az első nem-? karaktert, akkor pont egy ilyen minimalizált megoldást kapok. Majd ebben a C-kből és J-kből álló stringben kell megszámolni a CJ és JC részstringeket és kiírni a súlyozott összeget. Ez egy jó megoldás lenne.
+
+Viszont ennél sokkal egyszerűbb csak törölni a ?-eket, hiszen a fenti módszer csak annyit csinál, hogy a ?-ek helyére "elcsúsztatja" valamelyik oldalról az első nem ? karaktert, tehát új váltakozást nem fog bevezetni, csak a meglévőket húzza össze egymás mellé.
+
+Például ezt az input stringet:
+
+`???JC??C??JCJ`
+
+Erre fogja átírni:
+
+`JJJJCCCCCCJCJ`
+
+De ebben pont ugyanannyi CJ és JC van, mint a kérdőjelek törlésével kapott stringben:
+
+`JCCJCJ`
+
+Ezt viszont egy kicsit könnyebb programozottan kiszámolni az inputból (`m.replace('?', '')`).
+
+Nyelvnek pedig itt szintén érdemes a Pythont választani, mert tömör és mert 10 mp-ünk van teszthalmazonként, ami bőven elég a fenti program lefuttatására.
+
+Ezzel szereztünk összesen 16 pontot.
+
+3\. Feladat
+-----------
+
+**Feladatkiírás**
+
+**Megoldás**
+
