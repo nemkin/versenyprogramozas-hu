@@ -39,6 +39,30 @@ Ez az algoritmus eléggé pazarló, a feladat az, hogy kiszámoljuk hogy mennyir
 
 Egyetlen teszthalmaz van, ami rögtön látszik rajta, hogy nagyon kicsi: T=100 db teszteset, legfeljebb N=100 db számmal a listában. Ha a fenti algoritmust megnézzük, nagy vonalakban ~N-szer hajtja végre a ciklust, belül a minimum megtalálása ~N lépés, a string megfordítása szintén ~N lépés, tehát ~2\*N^2=20000 lépésben fut. Fontos tudni, hogy 1 mp körülbelül 10^7 - 10^8 darab utasításnak felel meg programozási versenyeken, tehát bőven 1 mp alatt vagyunk. A teszthalmazra 10 mp time limit van és 1 GB memóriát használhatunk, mindkettőbe bele fogunk férni az implementációval.
 
+Érdemes tehát ezt a feladatot megcsinálni, mert:
+- 7 pontot ad, ez a 30-ból elég sok.
+- Csak a megadott pszeudokódot kell lekódolni, várhatóan gyorsan elkészülünk.
+- Azonnal látható az eredményünk (Visible Verdict), biztosan tudhatjuk hogy megkaptuk a 7 pontot.
+- A feladat szövege írja, hogy egy későbbi feladat ehhez nagyon hasonló, 2 legyet ütünk egy csapásra ha foglalkozunk ezzel.
+
+Nyelvnek a Pythont választottam a tömörsége és a pszeudokódhoz hasonló szintaxisa miatt. Programozási versenyeken C++ és Python között szoktam választani, attól függően hogy mennyire szűk az időkorlát a teszteseteken. Itt most nem volt az, ezért jó választás a Python.
+
+A következő kódot adtam be (a kommentek nélkül):
+```Python
+n = int(input()) # Input 1. sora: tesztesetek száma
+for n_i in range(n):
+  cost = 0
+  m = int(input()) # Teszteset 1. sora: lista hossza
+  l = list(map(int, input().split(' '))) # Teszteset 2. sora: maga a lista
+  # Itt kezdődik a Reversort
+  for i in range(m-1):
+    j = l.index(min(l[i:m])) # Legkisebb elem megkeresése a hátralévő tömbben.
+    cost += j-i+1 # Résztömb hosszának hozzáadása a végleges költséghez.
+    l[i:j+1] = reversed(l[i:j+1]) # Résztömb megfordítása.
+  print(f"Case #{n_i+1}: {cost}") # Eredmény kiírása megfelelő formátumban.
+```
+
+Látszik, hogy a Reversort pszeudokódját szinte csak le kellett fordítani Python nyelvre és készen is volt a feladat. Az indexekkel kellett csak egy kicsit küzdeni, mire kijöttek jól (tanulság: Pythonban minden beépített függvénynél balról zárt, jobbról nyílt az összes intervallum), illetve a list.index és a reversed függvényt eddig nem ismertem, ezekre rá kellett keresni.
 
 
 2. Feladat
