@@ -22,7 +22,7 @@ Ez az operáció a listának egy összefüggő részét tudja megfordítani, a k
 
 (A tömbök indexelése 1-től kezdődik.)
 
-{% highlight %}
+{% highlight plaintext %}
 Reversort(L):
   for i := 1 to len(L) - 1
     j := L[i..]-ben a minimum érték indexe
