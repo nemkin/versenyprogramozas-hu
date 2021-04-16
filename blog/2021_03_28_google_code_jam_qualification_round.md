@@ -11,8 +11,8 @@ Az idei feladatsor a következő volt:
 
 Nézzük hogyan lehet továbbjutni... :)
 
-1\. Feladat
------------
+1\. Feladat: Reversort
+----------------------
 
 **Feladatkiírás**
 
@@ -66,8 +66,8 @@ Látszik, hogy a Reversort pszeudokódját szinte csak le kellett fordítani Pyt
 
 Ezzel szereztünk 7 pontot, még 23 pontra van szükségünk.
 
-2\. Feladat
------------
+2\. Feladat: Moons and Umbrellas
+--------------------------------
 
 **Feladatkiírás**
 
@@ -114,12 +114,46 @@ Ezt viszont egy kicsit könnyebb programozottan kiszámolni az inputból (`m.rep
 
 Nyelvnek pedig itt szintén érdemes a Pythont választani, mert tömör és mert 10 mp-ünk van teszthalmazonként, ami bőven elég a fenti program lefuttatására.
 
-Ezzel szereztünk összesen 16 pontot.
+Ezzel szereztünk összesen 16 pontot, még 7 pontra van szükségünk.
 
-3\. Feladat
------------
+3\. Feladat: Reversort Engineering
+----------------------------------
 
 **Feladatkiírás**
 
+Ez az a feladat ami ugyanúgy indul mint a Reversort, azonban most felcserélődnek a szerepek: most az inputon kapjuk meg a lista hosszát és a costot és nekünk kell adni egy olyan listát aminek a sorrendezése ennyibe fog kerülni a Reversort használatával (vagy kiírni, hogy IMPOSSIBLE ha ilyet nem lehet).
+
 **Megoldás**
 
+Az első teszthalmaznál a lista hossza legfeljebb 7 lehet. Ez azért nagyon kényelmes, mert a 7!=5040 lehetséges sorrendet végig tudjuk próbálgatni egyesével, mindegyiken lefuttatni az 1. feladatra adott megoldásunkat és ahol az ottani cost egyezik az inputon megadottal, azt a sorrendet kiírni. Ha nincs ilyen, akkor pedig azt, hogy IMPOSSIBLE. Ez a teszthalmaz 7 pontot ér, nekünk pont ennyire van szükségünk, ezért ezzel a megoldással tulajdonképpen készen is vagyunk, itt befejezhetjük a versenyt.
+
+A második teszthalmaz már nehezebb, itt legfeljebb 100 lehet a lista hossza, 100! esetre már biztosan nem fog a brute force algoritmus időben lefutni. Mivel még volt elég sok idő vissza a versenyből, ezért úgy döntöttem, hogy kíváncsiságból megpróbálom ezt a tesztesetet is megoldani.
+
+A megoldás kulcsa az, hogy visszafele gondolkozunk: kiindulunk az N hosszú rendezett listából és lépésenként keverjük össze, miközben számon tartjuk hogy mennyi costot használtunk el eddig a keveréshez.
+
+```Python
+z = int(input())
+for z_i in range(z):
+  n, c = map(int, input().split(' '))
+  if c < n-1: 
+    print(f"Case #{z_i+1}: IMPOSSIBLE")
+    continue
+  if n*(n+1)/2-1 < c:
+    print(f"Case #{z_i+1}: IMPOSSIBLE")
+    continue
+  if n == 1:
+    print(f"Case #{z_i+1}: 1")
+    continue
+  c -= (n-1)
+  torev = list(range(n))
+  for i in range(n-1):
+    j = min(n-1-i, c)
+    torev[i] = i + j
+    c -= j
+  l = list(range(1,n+1))
+  for i in range(n-2,-1,-1):
+    j = torev[i]
+    l[i:j+1] = reversed(l[i:j+1])
+  st = " ".join(map(str, l))
+  print(f"Case #{z_i+1}: {st}")
+```
