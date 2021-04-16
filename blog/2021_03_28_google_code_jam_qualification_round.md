@@ -148,7 +148,7 @@ A következő megfigyelés pedig az, hogy hátulról visszafele adott pozíciók
 A feladat tehát az, hogy a megadott costot rakjuk össze összegként úgy, hogy a fenti lépésekben mindenhol 1 számot választhatunk. Mivel minden lépésben tudunk bármilyen kicsi számot választani, ezért jó stratégia minden iterációban a maximumot választani, hogy minnél jobban csökkenjen a cost, kivéve ha azzal túllőnénk. Amennyiben a listában szereplő maximális érték már több, mint a hátralévő cost, akkor a cost-al egyenlő értéket választjuk ki a listából (ilyen biztosan van), a hátralévő iterációkban pedig mindig 0-t.
 
 
-```Python
+{% highlight Python %}
 n = int(input()) 
 for n_i in range(n):
   cost = 0
@@ -160,10 +160,11 @@ for n_i in range(n):
     cost += j-i+1 # Résztömb hosszának hozzáadása a végleges költséghez.
     l[i:j+1] = reversed(l[i:j+1]) # Résztömb megfordítása.
   print(f"Case #{n_i+1}: {cost}") # Eredmény kiírása megfelelő formátumban.
-```
+{% endhighlight %}
 
 Ezt az algoritmust implementáltam Pythonban:
 ```Python
+{% highlight Python %}
 z = int(input()) # Input 1. sora: tesztesetek száma
 for z_i in range(z):
   n, c = map(int, input().split(' ')) # Teszteset 1. sora: elvárt lista hossza, elvárt cost értéke.
@@ -193,4 +194,5 @@ for z_i in range(z):
   # Eredmény kiírása:
   st = " ".join(map(str, l))
   print(f"Case #{z_i+1}: {st}")
+{% endhighlight %}
 ```
