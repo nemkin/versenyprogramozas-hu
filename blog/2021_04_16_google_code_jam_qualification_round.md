@@ -202,8 +202,7 @@ for z_i in range(z):
   # Itt pedig visszafele lejátszom a fent kiszámolt forgatásokat és
   # legenerálom a kiindulási tömböt:
   
-  # Kiindulunk az n hosszú rendezett listából (ez 0 és n-1 közötti
-  # számokat tartalmaz, kiírásnál adok hozzá 1-et).
+  # Kiindulunk az n hosszú rendezett listából.
   l = list(range(1,n+1))
   # i=n-2...0
   for i in range(n-2,-1,-1):
