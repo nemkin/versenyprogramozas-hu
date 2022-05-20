@@ -8,3 +8,5 @@ youtube_link: https://www.youtube.com/channel/UCuL_AjPTt_RkATRRzVNZfAQ
 discord_link: https://discord.gg/B2ecH76
 
 theme: jekyll-theme-cayman
+
+markdown: kramdown
