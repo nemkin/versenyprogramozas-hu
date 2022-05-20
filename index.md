@@ -10,8 +10,6 @@ use_math: true
 
 Omg it's Latex! $x_{1,2} = \frac{-b\pm{}\sqrt{b^2-4ac}}{2a}$.
 
-$$
-x_{1,2} = \frac{-b\pm{}\sqrt{b^2-4ac}}{2a}
-$$
+$$x_{1,2} = \frac{-b\pm{}\sqrt{b^2-4ac}}{2a}$$
 
 OMG
