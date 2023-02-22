@@ -10,3 +10,6 @@ discord_link: https://vprog.hu/discord
 theme: jekyll-theme-cayman
 
 markdown: kramdown
+
+plugins:
+  - jekyll-redirect-from
