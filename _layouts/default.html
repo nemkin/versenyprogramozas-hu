@@ -27,6 +27,9 @@
     <header class="page-header" role="banner">
       <a href="{{ site.url }}" style="color: #fff; text-decoration: none;"><h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1></a>
       <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
+      {% if site.discord_link %}
+        <a href="{{ site.discord_link }}" class="btn">Discord</a>
+      {% endif %}
       {% if site.github_link %}
         <a href="{{ site.github_link }}" class="btn">GitHub</a>
       {% endif %}
