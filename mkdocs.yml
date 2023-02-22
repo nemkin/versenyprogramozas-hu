@@ -14,6 +14,7 @@ plugins:
         'wb.md': 'https://miro.com/welcomeonboard/YjdSWVU4SlNwYW51d2x5NjNvUTg0WU1IWU04THBHQXh0VjZTNERUZlpxc0tDUlNIbVlqNmp0TTFVQkJwcGNaSHwzMDc0NDU3MzQ1NzgwOTgyOTMzfDI=?share_link_id=905786391766'
         'whiteboard.md': 'https://miro.com/welcomeonboard/YjdSWVU4SlNwYW51d2x5NjNvUTg0WU1IWU04THBHQXh0VjZTNERUZlpxc0tDUlNIbVlqNmp0TTFVQkJwcGNaSHwzMDc0NDU3MzQ1NzgwOTgyOTMzfDI=?share_link_id=905786391766'
         'youtube.md': 'https://www.youtube.com/@versenyprogramozas/'
+  - search
 
 theme:
   name: material
