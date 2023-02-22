@@ -1,4 +1,12 @@
 site_name: Versenyprogramozás
+site_url: https://versenyprogramozas.hu/
+site_author: Viktória Nemkin
+site_description: >-
+  Algoritmuselmélet és programozási versenyek.
+
+repo_name: website
+repo_url: https://github.com/versenyprogramozas/website/
+
 
 plugins:
   - redirects:
@@ -15,6 +23,11 @@ plugins:
         'whiteboard.md': 'https://miro.com/welcomeonboard/YjdSWVU4SlNwYW51d2x5NjNvUTg0WU1IWU04THBHQXh0VjZTNERUZlpxc0tDUlNIbVlqNmp0TTFVQkJwcGNaSHwzMDc0NDU3MzQ1NzgwOTgyOTMzfDI=?share_link_id=905786391766'
         'youtube.md': 'https://www.youtube.com/@versenyprogramozas/'
   - search
+  - git-revision-date-localized:
+      type: iso_date
+  - git-committers:
+      repository: versenyprogramozas/website
+      branch: main
 
 theme:
   name: material
@@ -28,6 +41,8 @@ theme:
     - content.tabs.link
     - content.code.annotation
     - content.code.copy
+    - content.action.edit
+    - content.action.view
   language: hu
   palette:
     - scheme: default
@@ -75,3 +90,4 @@ extra_javascript:
 
 copyright: |
   Versenyprogramozás
+
