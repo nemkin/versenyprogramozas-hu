@@ -3,6 +3,8 @@ description: Algoritmuselmélet és programozási versenyek.
 logo:
 google_analytics:
 
+permalink: /:slug/
+
 github_link: https://github.com/versenyprogramozas
 youtube_link: https://www.youtube.com/@versenyprogramozas
 discord_link: https://vprog.hu/discord
