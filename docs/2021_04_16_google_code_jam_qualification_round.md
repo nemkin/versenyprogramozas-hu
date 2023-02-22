@@ -3,6 +3,7 @@
 Pár hete zajlott le a 2021-es Google Code Jam [Qualification Round](https://codingcompetitions.withgoogle.com/codejam/round/000000000043580a)-ja! Ennek a fordulónak a hossza 30 óra, így bármelyik időzónában is élünk a világban, bőven van 1 teljes napunk megoldani a feladatokat. A továbbjutáshoz 30 pontot kell szerezni, ennek az összeszedéséhez a szokásos módon nem volt szükség az összes feladat megoldására.
 
 Az idei feladatsor a következő volt:
+
 - [Reversort](https://codingcompetitions.withgoogle.com/codejam/round/000000000043580a/00000000006d0a5c) (7 pont)
 - [Moons and Umbrellas](https://codingcompetitions.withgoogle.com/codejam/round/000000000043580a/00000000006d1145) (5, 11, 1 pont)
 - [Reversort Engineering](https://codingcompetitions.withgoogle.com/codejam/round/000000000043580a/00000000006d12d7)  (7, 11 pont)
@@ -11,10 +12,9 @@ Az idei feladatsor a következő volt:
 
 Nézzük meg, hogy hogyan lehetett továbbjutni a következő fordulóba!
 
-1\. Feladat: Reversort
-----------------------
+## 1\. Feladat: Reversort
 
-**Feladatkiírás**
+### Feladatkiírás
 
 A Reversort egy olyan algoritmus, ami egy listát tud növekvő sorrendbe állítani, a "Reverse" operáció használatával.
 
@@ -22,12 +22,12 @@ Ez az operáció a listának egy összefüggő részét tudja megfordítani, a k
 
 (A tömbök indexelése 1-től kezdődik.)
 
-{% highlight plaintext %}
+```plain linenums="1"
 Reversort(L):
   for i := 1 to len(L) - 1
     j := L[i..]-ben a minimum érték indexe
     Reverse(L[i..j])
-{% endhighlight %}
+```
 
 A fenti kód végigiterál a tömbön és minden lépésben az aktuális pozíción lévő számot kicseréli a még hátralévő tömbben lévő minimális számmal, mindezt úgy, hogy a közöttük lévő számokat is fordított sorrendbe teszi, tehát megfordítja ezt az egész listarészt.
 
@@ -35,11 +35,12 @@ Látható, hogy az iteráció végén a tömbben lévő számok növekvő sorren
 
 Ez az algoritmus eléggé pazarló, a feladat az, hogy kiszámoljuk hogy mennyire. A bemeneten kapunk egy listát, össze-vissza sorrendben, nekünk pedig össze kell adni (az erre lefuttatott algoritmusban) iterációnként a megfordított listák hosszait és ezt az összeget kiírni a kimenetre.
 
-**Megoldás**
+### Megoldás
 
 Egyetlen teszthalmaz van, ami rögtön látszik rajta, hogy nagyon kicsi: T=100 db teszteset, legfeljebb N=100 db számmal a listában. Ha a fenti algoritmust megnézzük, nagy vonalakban ~N-szer hajtja végre a ciklust, belül a minimum megtalálása ~N lépés, a string megfordítása szintén ~N lépés, tehát ~2\*N^2=2\*10^4 lépésben fut. Fontos tudni, hogy 1 mp körülbelül 10^7 ~ 10^8 db utasításnak felel meg programozási versenyeken, tehát bőven 1 mp alatt vagyunk. A teszthalmazra 10 mp time limit van és 1 GB memóriát használhatunk, mindkettőbe bele fogunk férni ha csak lekódoljuk a fenti pszeudokódot.
 
 Érdemes tehát ezt a feladatot megcsinálni, mert:
+
 - 7 pontot ad, ez a 30-ból elég sok.
 - Csak a megadott pszeudokódot kell egy konkrét programozási nyelvre lefordítani, várhatóan gyorsan elkészülünk.
 - Azonnal látható az eredményünk (Visible Verdict), biztosan tudhatjuk hogy megkaptuk a 7 pontot.
@@ -48,7 +49,8 @@ Egyetlen teszthalmaz van, ami rögtön látszik rajta, hogy nagyon kicsi: T=100 
 Nyelvnek a Pythont választottam a tömörsége és a pszeudokódhoz hasonló szintaxisa miatt. Programozási versenyeken C++ és Python között szoktam választani, attól függően hogy mennyire szűk az időkorlát a teszteseteken. Itt most nem volt az, ezért jó választás a Python.
 
 A következő kódot adtam be (a kommentek nélkül):
-{% highlight Python %}
+
+```py linenums="1"
 n = int(input()) # Input 1. sora: tesztesetek száma
 for n_i in range(n):
   cost = 0
@@ -60,20 +62,19 @@ for n_i in range(n):
     cost += j-i+1 # Résztömb hosszának hozzáadása a végleges költséghez.
     l[i:j+1] = reversed(l[i:j+1]) # Résztömb megfordítása.
   print(f"Case #{n_i+1}: {cost}") # Eredmény kiírása megfelelő formátumban.
-{% endhighlight %}
+```
 
 Látszik, hogy a Reversort pszeudokódját szinte csak le kellett fordítani Python nyelvre és készen is volt a feladat. Az indexekkel kellett csak egy kicsit küzdeni, mire kijöttek jól (tanulság: Pythonban minden beépített függvénynél balról zárt, jobbról nyílt az összes intervallum), illetve a list.index és a reversed függvényt eddig nem ismertem, ezekre rá kellett keresni.
 
 Ezzel szereztünk 7 pontot, még 23 pontra van szükségünk.
 
-2\. Feladat: Moons and Umbrellas
---------------------------------
+## 2\. Feladat: Moons and Umbrellas
 
-**Feladatkiírás**
+### Feladatkiírás
 
 A sztoritól eltekintve annyi a feladat, hogy kapunk egy stringet, ami C, J illetve ? karaktereket tartalmaz, a ? karakterek helyére kell úgy C és J karaktereket írni, hogy a kapott stringben a lehető legkevesebb legyen a CJ és a JC részstringek darabszámának a súlyozott összege. A CJ-k darabszámát X-el, a JC-k darabszámát Y-al súlyozzuk, ezeket a paramétereket szintén az inputon kapjuk meg.
 
-**Megoldás**
+### Megoldás
 
 A három teszthalmazból az 1. (5 pontért) nagyon pici, legfeljebb 10 hosszú lehet a string, itt a max ~2^10 db összes esetet is végig tudnánk próbálgatni. Ha olyan helyzetben lennénk, hogy a többi feladat közül már megoldottunk párat és pont ez az 5 pont hiányzik a 30-ból, akkor itt érdemes ennyit lekódolni és nem foglalkozni a többi tesztesettel.
 
@@ -83,7 +84,7 @@ A 3. teszthalmaz (1 pontért) azonban nagyon nem szimpatikus. Csak 1 pontot ér,
 
 Az első két teszthalmazra a következő Python kódot adtam be:
 
-{% highlight Python %}
+```py linenums="1"
 n = int(input())
 for n_i in range(n):
   x, y, m = input().split()
@@ -93,7 +94,7 @@ for n_i in range(n):
   xc = m.count('CJ')
   yc = m.count('JC')
   print(f"Case #{n_i+1}: {x*xc + y*yc}")
-{% endhighlight %}
+```
 
 Ha minimalizálni szeretnénk a CJ-k és a JC-k darabszámát, akkor tulajdonképpen a váltakozásokat szeretnénk minimalizálni. Ha egyszerűen végigmegyek balról-jobbra a stringen és minden ? helyére beírom a tőle balra lévő karaktert (aki már nem lehet ?, mert az előző lépésben biztosan átírtam), illetve ha ? sorozattal kezdődik a string, akkor azok helyére balról az első nem-? karaktert, akkor pont egy ilyen minimalizált megoldást kapok. Ebben a C-kből és J-kből álló stringben kell megszámolni a CJ és JC részstringeket és kiírni a súlyozott összeget: ez egy jó megoldás lenne.
 
@@ -117,14 +118,13 @@ Nyelvnek pedig itt szintén érdemes a Pythont választani, mert tömör és mer
 
 Ezzel szereztünk összesen 16 pontot, még 7 pontra van szükségünk.
 
-3\. Feladat: Reversort Engineering
-----------------------------------
+## 3\. Feladat: Reversort Engineering
 
-**Feladatkiírás**
+### Feladatkiírás
 
 Ez az a feladat ami ugyanúgy indul mint a Reversort, azonban most felcserélődnek a szerepek: most az inputon kapjuk meg a lista hosszát és a costot és nekünk kell adni egy olyan listát aminek a sorrendezése ennyibe fog kerülni a Reversort használatával (vagy kiírni, hogy IMPOSSIBLE ha ilyet nem lehet).
 
-**Megoldás**
+### Megoldás
 
 Az első teszthalmaznál a lista hossza legfeljebb 7 lehet. Ez azért nagyon kényelmes, mert a 7!=5040 lehetséges sorrendet végig tudjuk próbálgatni egyesével, mindegyiken lefuttatni az 1. feladatra adott megoldásunkat és ahol az ottani cost egyezik az inputon megadottal, azt a sorrendet kiírni. Ha nincs ilyen, akkor pedig azt, hogy IMPOSSIBLE. Ez a teszthalmaz 7 pontot ér, nekünk pont ennyire van szükségünk, ezért ezzel a megoldással tulajdonképpen készen is vagyunk, itt befejezhetjük a versenyt.
 
@@ -151,7 +151,8 @@ A következő megfigyelés pedig az, hogy hátulról visszafele adott pozíciók
 A feladat tehát az, hogy a megadott costot rakjuk össze összegként úgy, hogy a fenti lépésekben mindenhol 1 számot választhatunk. Mivel minden lépésben tudunk bármilyen kicsi számot választani, ezért jó stratégia minden iterációban a maximumot választani, hogy minnél jobban csökkenjen a cost, kivéve ha azzal túllőnénk. Amennyiben a listában szereplő maximális érték már több, mint a hátralévő cost, akkor a cost-al egyenlő értéket választjuk ki a listából (ilyen biztosan van), a hátralévő iterációkban pedig mindig 0-t.
 
 Ezt az algoritmust implementáltam Pythonban:
-{% highlight Python %}
+
+```py linenums="1"
 # Input 1. sora: tesztesetek száma.
 z = int(input())
 for z_i in range(z):
@@ -215,7 +216,7 @@ for z_i in range(z):
   
   st = " ".join(map(str, l))
   print(f"Case #{z_i+1}: {st}")
-{% endhighlight %}
+```
 
 Itt sokféleképpen lehetne számolni, tulajdonképpen az n-1 előre lekönyvelése sem szükséges, menet közben is észre lehetne venni ha kifogytunk a megengedett costból. Ezen a kódon még sokat lehetne egyszerűsíteni. :)
 
