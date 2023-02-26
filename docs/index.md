@@ -1,19 +1,9 @@
 # Főoldal
 
-Algoritmuselmélet és programozási versenyek.
+Ez itt a magyar nyelvű egyetemi hallgatók versenyprogramozási közössége. Péntekenként összegyűlünk itt Discord-on szakkörön, ahol Codeforces, ACM ICPC és egyéb LeetCode jellegű feladatokat oldunk meg és hét közben együtt készülünk ezekre a versenyekre.
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Idén is indul a SZIT tanszék szervezésében a programozási versenyekre (ACM ICPC, Google Code Jam, Codeforces, stb) felkészítő szakkör. A szakkör nyitva áll mindenki számára: kezdőket és haladókat, más egyetemek hallgatóit, egyetemen kívüli érdeklődőket is szeretettel várunk. :) 
 
-## Commands
+Részletek:
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+![Reklám](./reklam.png)
