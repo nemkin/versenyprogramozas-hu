@@ -6,7 +6,7 @@ site_description: >-
 
 repo_name: website
 repo_url: https://github.com/versenyprogramozas/website/
-
+edit_uri: blob/main/docs/
 
 plugins:
   - redirects:
