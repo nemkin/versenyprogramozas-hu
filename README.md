@@ -1,3 +1,6 @@
 # website
 
-- How to render Latex equations: https://benlansdell.github.io/computing/mathjax/
+Cikkek algoritmuselmélet és programozási versenyek témakörben.
+
+https://versenyprogramozas.hu/  
+https://vprog.hu/
