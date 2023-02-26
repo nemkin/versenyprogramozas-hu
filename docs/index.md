@@ -6,4 +6,4 @@ Idén is indul a SZIT tanszék szervezésében a programozási versenyekre (ACM 
 
 Részletek:
 
-![Reklám](./reklam.png)
+![Reklám](reklam.png)
