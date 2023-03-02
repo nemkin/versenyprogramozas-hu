@@ -10,10 +10,10 @@ Az alkalmak online formában, Discordon valósulnak meg.
 
 Első alkalom:
 
-**Időpont**: <span style="color:red">2023. március 10. (péntek) 15:00 - 17:00</span>
+**Időpont**: <span style="color:red">2023. március 10. (péntek) 15:00 - 17:00</span>  
 **Csatlakozás**: [https://vprog.hu/discord](https://vprog.hu/discord)
 
 Kapcsolat:
 
-Weboldal: https://versenyprogramozas.hu/  [https://versenyprogramozas.hu/](https://versenyprogramozas.hu/)
+Weboldal: https://versenyprogramozas.hu/  [https://versenyprogramozas.hu/](https://versenyprogramozas.hu/)  
 E-mail: [nemkin@cs.bme.hu](mailto:nemkin@cs.bme.hu)
