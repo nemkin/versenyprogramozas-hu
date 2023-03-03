@@ -4,9 +4,9 @@ Ebben a félévben is indul a Versenyprogramozás önképzőkör a BME VIK SZIT 
 
 A körön algoritmuselméleti, elsősorban Codeforces és egyéb LeetCode jellegű feladatok közös megoldásával foglalkozunk, főként C++ és Python nyelveken, mob programming formátumban. Célunk többek között az őszi félévekben megrendezésre kerülő ACM ICPC versenyre történő felkészülés.
 
-Várunk szeretettel minden algoritmuselmélet iránt érdeklődőt, kezdőket és haladóbbakat (Nemes Tihamér és Programozás OKTV versenyzőket) is egyaránt! :)
+Várunk szeretettel minden algoritmuselmélet iránt érdeklődőt! :)
 
-Az alkalmak online formában, Discordon valósulnak meg.
+Az alkalmak online formában, Discordon valósulnak meg. 
 
 ## Első alkalom
 
