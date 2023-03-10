@@ -21,6 +21,10 @@ plugins:
         'miro.md': 'https://miro.com/welcomeonboard/YjdSWVU4SlNwYW51d2x5NjNvUTg0WU1IWU04THBHQXh0VjZTNERUZlpxc0tDUlNIbVlqNmp0TTFVQkJwcGNaSHwzMDc0NDU3MzQ1NzgwOTgyOTMzfDI=?share_link_id=905786391766'
         'wb.md': 'https://miro.com/welcomeonboard/YjdSWVU4SlNwYW51d2x5NjNvUTg0WU1IWU04THBHQXh0VjZTNERUZlpxc0tDUlNIbVlqNmp0TTFVQkJwcGNaSHwzMDc0NDU3MzQ1NzgwOTgyOTMzfDI=?share_link_id=905786391766'
         'whiteboard.md': 'https://miro.com/welcomeonboard/YjdSWVU4SlNwYW51d2x5NjNvUTg0WU1IWU04THBHQXh0VjZTNERUZlpxc0tDUlNIbVlqNmp0TTFVQkJwcGNaSHwzMDc0NDU3MzQ1NzgwOTgyOTMzfDI=?share_link_id=905786391766'
+        'tabla.md': 'https://miro.com/welcomeonboard/YjdSWVU4SlNwYW51d2x5NjNvUTg0WU1IWU04THBHQXh0VjZTNERUZlpxc0tDUlNIbVlqNmp0TTFVQkJwcGNaSHwzMDc0NDU3MzQ1NzgwOTgyOTMzfDI=?share_link_id=905786391766'
+        'kod.md': 'https://ide.usaco.guide/NQ7gS5q8hspFLBn6UMv'
+        'ide.md': 'https://ide.usaco.guide/NQ7gS5q8hspFLBn6UMv'
+        'code.md': 'https://ide.usaco.guide/NQ7gS5q8hspFLBn6UMv'
         'youtube.md': 'https://www.youtube.com/@versenyprogramozas/'
   - search
   - git-revision-date-localized:
