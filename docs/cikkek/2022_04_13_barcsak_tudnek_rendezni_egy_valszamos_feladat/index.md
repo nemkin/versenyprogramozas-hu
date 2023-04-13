@@ -162,12 +162,16 @@ Ehhez szokott tartozni egy állapotátmeneti mátrix:
 
 ![Időjárás átmeneti mátrix](img/idojaras_atmeneti_matrix.png)
 
-A memóriamentességi feltétel (vagy Markov-feltétel) itt azt jelenti, hogy az adott napi időjárás csak az azt megelőző nap időjárásától függ, "nem pedig az összes múltbéli nap időjárásától". Ezt az utóbbi idézőjelbe tett szöveget pontosan úgy kell megfogalmazni, hogy "amennyiben a tegnapi időjárás ismert, úgy a mai nap időjárása független minden korábbi nap időjárásától".
+A mátrix oszlopai pedig $1$-re összegződnek, hiszen teljes eseményrendszerről van szó:
+- Egymást páronként kizárják, hiszen a modellünk szerint egy napon csak egyféle időjárás lehet.
+- Együtt kiadják a biztos eseményt, hiszen a modellünk szerint minden nap van valamilyen időjárás.
+
+A memóriamentességi feltétel (vagy ú.n. Markov-feltétel) itt azt jelenti, hogy az adott napi időjárás csak az azt megelőző nap időjárásától függ, "nem pedig az összes múltbéli nap időjárásától". Ezt az utóbbi idézőjelbe tett szöveget valszámos nyelven úgy kell megfogalmazni, hogy amennyiben a tegnapi időjárás ismert, úgy a mai nap időjárása független minden korábbi nap időjárásától.
 
 ### Vissza a feladathoz
 
 Feladatunkban felismerhetünk egy hasonló Markov-láncot. Ennek az állapotai legyenek azok, hogy az adott sorozatban éppen hány darab $1$-es szerepel a határvonal bal oldalán. Tudjuk, hogy ennek a lehetséges értékei $0, \dots{}, k$, ahol $k$ a kiindulási tömbhöz tartozó érték.
 
-Korábban már megadtuk a $p_i$ valószínűségeket, melyek pont a lánc átmeneti
+Korábban már megadtuk a $p_i$ valószínűségeket, melyek pont a lánc átmeneti valószínűségei lesznek:
 
 ## Megoldás kiírása irreducibilis tört alakban
