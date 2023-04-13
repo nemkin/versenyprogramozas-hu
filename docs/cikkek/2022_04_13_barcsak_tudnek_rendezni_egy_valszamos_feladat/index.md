@@ -174,4 +174,6 @@ Feladatunkban felismerhetünk egy hasonló Markov-láncot. Ennek az állapotai l
 
 Korábban már megadtuk a $p_i$ valószínűségeket, melyek pont a lánc átmeneti valószínűségei lesznek:
 
+![Rendezés Markov-lánca](img/sort_markov.png)
+
 ## Megoldás kiírása irreducibilis tört alakban
