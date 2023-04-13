@@ -40,6 +40,8 @@ Tehát elmondható, hogy a feladat szempontjából lényegtelen a $0$-ák és $1
 
 Aki tanult valószínűségszámítást, az ráismerhet a feladatban egy nevezetes eloszlásra: ez a geometriai eloszlás. Ez mindig akkor kerül elő, amikor "addig ismétlünk valamit, amíg nem sikerül".
 
+### Egy kis kitérő: a geometriai eloszlásról (annak, aki még nem ismeri)
+
 Pontosabban:
 
 1. Egy véletlen kísérletsorozatot hajtunk végre.
@@ -64,10 +66,13 @@ $$E(X) = \sum\limits_{i} i \cdot{} P(X=i)$$
 
 (Aztán lehet később arról beszélni, hogy ha mintavételezzük $X$-et sokszor, azaz végrehajtjuk a véletlen kísérletsorozatot és felírjuk hány lépést végeztünk, akkor a kapott lépésszámok átlaga egyre jobban megközelíti majd ezt az elméleti várható értéket, de ez már a statisztika világa.)
 
-A geometriai eloszlás elméleti várható értéke például $\frac{1}{p}$, ezt a fenti képletbe helyettesítéssel könnyen kiszámolhatjuk:
+A geometriai eloszlás elméleti várható értéke például $\frac{1}{p}$, ezt a fenti képletbe helyettesítéssel könnyen ki is számolhatjuk:
 
-$$E(X) = \sum\limits_{i} i \cdot{} P(X=i) = \sum\limits_{i} i \cdot{} (1-p)^{i-1}p $$
+$$E(X) = \sum\limits_{i} i \cdot{} P(X=i) = \sum\limits_{i} i \cdot{} (1-p)^{i-1}p = p \sum\limits_{i} i \cdot{} (1-p)^{i-1} $$
 
+Egy ilyen t
+
+### Vissza a feladathoz
 
 Valamilyen "addig csináljuk amíg nem sikerül" érzésünk van a feladattal kapcsolatban. Próbáljuk meg modellezni!
 
