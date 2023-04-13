@@ -62,8 +62,11 @@ A nevezetes eloszlások ismeretének előnye például, hogy tanuljuk a várhat�
 
 $$E(X) = \sum\limits_{i} i \cdot{} P(X=i)$$
 
+(Aztán lehet később arról beszélni, hogy ha mintavételezzük $X$-et sokszor, azaz végrehajtjuk a véletlen kísérletsorozatot és felírjuk hány lépést végeztünk, akkor a kapott lépésszámok átlaga egyre jobban megközelíti majd ezt az elméleti várható értéket, de ez már a statisztika világa.)
 
-A geometriai eloszlás várható értéke például $\frac{1}{p}$.
+A geometriai eloszlás elméleti várható értéke például $\frac{1}{p}$, ezt a fenti képletbe helyettesítéssel könnyen kiszámolhatjuk:
+
+$$E(X) = \sum\limits_{i} i \cdot{} P(X=i) = \sum\limits_{i} i \cdot{} (1-p)^{i-1}p $$
 
 
 Valamilyen "addig csináljuk amíg nem sikerül" érzésünk van a feladattal kapcsolatban. Próbáljuk meg modellezni!
