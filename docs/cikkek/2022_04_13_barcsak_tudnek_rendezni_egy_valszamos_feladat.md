@@ -11,3 +11,9 @@ Ezt a lépést addig ismételjük, amíg a tömb rendezett nem lesz.
 
 Kérdés: mi a várható értéke a végrehajtott lépéseknek?
 
+A feladatnak legalább kettő, egymástól nagyon különböző megoldása van, mindkettőt nagyon hasznos ismerni valszámos feladatok kezeléséhez.
+
+## Első megoldási módszer: Várható érték linearitása
+
+## Második megoldási módszer: Markov lánc dinamikus programozással
+
