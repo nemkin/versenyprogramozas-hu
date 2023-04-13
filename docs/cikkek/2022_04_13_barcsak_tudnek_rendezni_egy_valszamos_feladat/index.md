@@ -21,9 +21,16 @@ Az első dolog, amit a feladat kapcsán észreveszünk, hogy tudjuk hány darab 
 
 ![Elválasztó vonal](img/elvalaszto_vonal.png)
 
-Ezután a véletlenül választott $(i,j)$ pár elhelyezkedése szerint tulajdonképpen három különböző eset van:
+Ezután a véletlenül választott $i<j$ pár elhelyezkedése szerint tulajdonképpen két különböző eset van:
 
+1. $i$ az elválasztó vonal előtt, $j$ utána van.
+2. Mindkettő az elválasztó vonal előtt / után van.
 
+Az 1. esetben ha történik csere azzal hasznos munkát végeztünk, hiszen növeltük a $0$-ák számát a vonal előtt és az $1$-esek számát a vonal után, ezzel közelebb kerültünk a célállapothoz.
+
+A 2. esetben ha történik csere azzal nem végeztünk hasznos munkát, hiszen pusztán határokon belül mozgattunk dolgokat, továbbra is ugyanannyi $1$-est kell még a határ bal oldaláról a jobb oldalára mozgatni, miközben a helyükre $0$-ákat hozunk.
+
+Tehát elmondható, hogy a feladat szempontjából hasznos lépés az, amikor az $i$ a határ előtt és a $j$ a határ után van és $a_i = 1$, illetve $a_j = 0$.
 
 ## Első megoldási módszer: Várható érték linearitása
 
