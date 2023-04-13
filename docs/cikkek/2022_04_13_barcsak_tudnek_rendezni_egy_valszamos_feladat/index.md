@@ -62,7 +62,7 @@ $i$ lehetséges értékei pedig $1$ és $\infty$ között bármilyen lépésszá
 
 A nevezetes eloszlások ismeretének előnye például, hogy tanuljuk a várható értéküket. Ezt az $X$ változóhoz $E(X)$-el jelöljük az angol "expectation value" kifejezésből. Definíció szerint a várható értéke egy változónak a lehetséges értékeinek a valószínűségükkel súlyozott összege, azaz
 
-$$E(X) = \sum\limits_{i} i \cdot{} P(X=i)$$
+$$E(X) = \sum\limits_{i} i \cdot{} P(X=i).$$
 
 (Aztán lehet később arról beszélni, hogy ha mintavételezzük $X$-et sokszor, azaz végrehajtjuk a véletlen kísérletsorozatot és felírjuk hány lépést végeztünk, akkor a kapott lépésszámok átlaga egyre jobban megközelíti majd ezt az elméleti várható értéket, de ez már a statisztika világa.)
 
@@ -70,7 +70,7 @@ $$E(X) = \sum\limits_{i} i \cdot{} P(X=i)$$
 
 A geometriai eloszlás elméleti várható értéke például $\frac{1}{p}$, ezt a fenti képletbe helyettesítéssel könnyen ki is számolhatjuk:
 
-$$E(X) = \sum\limits_{i} i \cdot{} P(X=i) = \sum\limits_{i} i \cdot{} (1-p)^{i-1}p = p \sum\limits_{i=1}^{\infty} i \cdot{} (1-p)^{i-1} $$
+$$E(X) = \sum\limits_{i} i \cdot{} P(X=i) = \sum\limits_{i} i \cdot{} (1-p)^{i-1}p = p \sum\limits_{i=1}^{\infty} i \cdot{} (1-p)^{i-1}$$
 
 Ilyen végtelen összegekkel már sokszor találkoztunk és sokféleképpen el lehet bánni velük. Most főleg az az $i$ szorzó zavar minket, anélkül mértani sor lenne, tehát ettől kellene megszabadulni.
 
@@ -84,15 +84,15 @@ $$(1-p) E(X) = p \sum\limits_{i=1}^{\infty} i \cdot{} (1-p)^{i} = p(1-p) + 2p(1-
 
 Észrevehetjük, hogy ha kivonjuk egymásból a kettőt, akkor azzal pont az $i$-s szorzóktól szabadulunk meg és egy végtelen mértani sor összegét kapjuk:
 
-$$E(X) - (1-p) E(X) = p + p(1-p) + p(1-p)^2 + p(1-p)^3 + p(1-p)^4 + \cdots{} = p \sum\limits_{i=0}^{\infty} (1-p)^{i} = p \cdot{} \frac{1}{1-(1-p)} = 1$
+$$E(X) - (1-p) E(X) = p + p(1-p) + p(1-p)^2 + p(1-p)^3 + p(1-p)^4 + \cdots{} = p \sum\limits_{i=0}^{\infty} (1-p)^{i} = p \cdot{} \frac{1}{1-(1-p)} = 1$$
 
 Azaz
 
-$$E(X) - E(X) + pE(X) = 1$$
+$$E(X) - E(X) + pE(X) = 1,$$
 
-$$pE(X) = 1$$
+$$pE(X) = 1,$$
 
-$$E(X) = \frac{1}{p}$$.
+$$E(X) = \frac{1}{p}.$$
 
 Érdemes erre az eredményre emlékezni.
 
