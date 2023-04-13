@@ -136,9 +136,9 @@ Tulajdonképpen ezzel meg is oldottuk a feladatot elméleti szinten, ennek az ö
 
 Mielőtt ezt megtennénk, nézzünk meg először egy teljesen másik megoldást:
 
-## Második megoldási módszer: Markov lánc elérési idők dinamikus programozással
+## Második megoldási módszer: Markov-lánc elérési idők dinamikus programozással
 
-### Egy kis kitérő: a Markov láncokról (annak, aki még nem ismeri)
+### Egy kis kitérő: a Markov-láncokról (annak, aki még nem ismeri)
 
 A Markov-láncok valószínűségszámításban olyan véletlen folyamatokat írnak le, melyek teljesítenek valamilyen fajta memóriamentességi kritériumot. Most ezeknek egy speciális fajtájáról fogok csak beszélni, de az egyszerűség kedvéért csak Markov-láncként fogok hivatkozni rájuk.
 
@@ -149,6 +149,6 @@ Képzeljünk el például egy olyan időjárási modellt, ami a következőket �
 
 Ezeket az állításokat egy ábrán szemléltethetjük:
 
-
+![Időjárás Markov-lánc](img/idojaras_markov.png)
 
 ## Megoldás kiírása irreducibilis tört alakban
