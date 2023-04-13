@@ -132,7 +132,9 @@ Az összeg várható értéke pedig
 
 $$E = E(X_k) + E(X_{k-1}) + \cdots{} + E(X_1) = \sum\limits_{i=1}^{k}\frac{\binom{n}{2}}{i^2}.$$
 
+Tulajdonképpen ezzel meg is oldottuk a feladatot elméleti szinten, ennek az összegnek a kiszámítását kell leprogramozni.
 
+Mielőtt ezt megtennénk, nézzünk meg először egy teljesen másik megoldást:
 
 ## Második megoldási módszer: Markov lánc dinamikus programozással
 
