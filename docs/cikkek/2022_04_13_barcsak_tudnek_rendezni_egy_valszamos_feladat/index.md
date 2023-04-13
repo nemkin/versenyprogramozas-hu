@@ -34,7 +34,7 @@ A 2. esetben ha történik csere azzal nem végeztünk hasznos munkát, hiszen p
 
 ![Haszontala munka](img/haszontalan_munka.png)
 
-Tehát elmondható, hogy a feladat szempontjából hasznos lépés az, amikor az $i$ a határ előtt és a $j$ a határ után van és $a_i = 1$, illetve $a_j = 0$.
+Tehát elmondható, hogy a feladat szempontjából lényegtelen a $0$-ák és $1$-esek pontos elhelyezkedése, csak az számít, hogy hány darab található belőlük a határvonal egy-egy oldalán. Hasznos lépés csak akkor történik, amikor az $i$ a határ előtt és a $j$ a határ után van, továbbá $a_i = 1$ és $a_j = 0$. Minden más esetben a lépés nem változtat az aktuális állapoton.
 
 ## Első megoldási módszer: Várható érték linearitása
 
