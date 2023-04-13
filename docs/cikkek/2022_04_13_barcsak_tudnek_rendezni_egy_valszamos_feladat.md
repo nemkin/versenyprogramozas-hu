@@ -9,7 +9,7 @@ A feladatban kapunk egy bináris, $n$ elemű $a$ tömböt, amit rendezni szeretn
 
 Ezt a lépést addig ismételjük, amíg a tömb rendezett nem lesz.
 
-Kérdés: mi a várható értéke a végrehajtott lépéseknek?
+**Kérdés**: Mi a várható értéke a végrehajtott lépéseknek?
 
 A feladatban technikai részlet, hogy a megoldást irreducibilis (tovább már nem egyszerűsíthető alakú) törtként kell kiírni, ennek a módszerére a végén térek ki.  
 
