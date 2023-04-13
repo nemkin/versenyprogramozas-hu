@@ -21,7 +21,7 @@ Az első dolog, amit a feladat kapcsán észreveszünk, hogy tudjuk hány darab 
 
 ![Elválasztó vonal](img/elvalaszto_vonal.png)
 
-Ezután a véletlenül választott $i<j$ pár elhelyezkedése szerint tulajdonképpen két különböző eset van:
+Ezután a véletlenül választott $i < j$ pár elhelyezkedése szerint tulajdonképpen két különböző eset van:
 
 1. $i$ az elválasztó vonal előtt, $j$ utána van.
 2. Mindkettő az elválasztó vonal előtt / után van.
