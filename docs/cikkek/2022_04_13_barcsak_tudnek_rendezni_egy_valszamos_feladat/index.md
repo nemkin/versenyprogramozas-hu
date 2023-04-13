@@ -184,7 +184,7 @@ Ez az úgynevezett "hitting time", vagy magyarul elérési idő [1].
 
 A $\nu_{j,i}$ értékre fel lehet írni egy "önhivatkozó" formulát a [Teljes várható érték tétele](https://hu.wikipedia.org/wiki/Teljes_v%C3%A1rhat%C3%B3_%C3%A9rt%C3%A9k_t%C3%A9tele) segítségével.
 
-$$\nu_{j,i} = 1 + \sum\limits_{x\in{}S} p_{j,x}\nu_{j,i}$$
+$$\nu_{j,i} = 1 + \sum\limits_{x\in{}S} p_{j,x}\nu_{x,i}$$
 
 
 ## Megoldás kiírása irreducibilis tört alakban
