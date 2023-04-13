@@ -151,4 +151,19 @@ Ezeket az állításokat egy ábrán szemléltethetjük:
 
 ![Időjárás Markov-lánc](img/idojaras_markov.png)
 
+Ez példa egy nagyon egyszerű Markoc-láncra. A láncnak $2$ lehetséges állapota van, "napos" és "esős". Az $i.$ napon az $X_i$ valószínűségi változóval jelöljük, hogy milyen idő volt. A fenti állításainkat lefordíthatjuk a valószínűségszámítás nyelvére, mellyel a lánc állapotátmeneti valószínűségeit adhatjuk meg:
+
+- Annak a valószínűsége, hogy az $i.$ napon napos az idő, feltéve hogy az előző, $i-1.$ napon is napos volt: $P(X_i = napos | X_{i-1} = napos) = 0.9$
+- Annak a valószínűsége, hogy az $i.$ napon esős az idő, feltéve hogy az előző, $i-1.$ napon napos volt: $P(X_i = esős | X_{i-1} = napos) = 0.1$
+- Annak a valószínűsége, hogy az $i.$ napon napos az idő, feltéve hogy az előző, $i-1.$ napon esős volt: $P(X_i = napos | X_{i-1} = esős) = 0.3$
+- Annak a valószínűsége, hogy az $i.$ napon esős az idő, feltéve hogy az előző, $i-1.$ napon is esős volt: $P(X_i = esős | X_{i-1} = esős) = 0.7$
+
+A memóriamentességi feltétel (vagy Markov-feltétel) itt azt jelenti, hogy az adott napi időjárás csak az azt megelőző nap időjárásától függ, "nem pedig az összes múltbéli nap időjárásától". Ezt az utóbbi idézőjelbe tett szöveget pontosan úgy kell megfogalmazni, hogy "amennyiben a tegnapi időjárás ismert, úgy a mai nap időjárása független minden korábbi nap időjárásától".
+
+### Vissza a feladathoz
+
+Feladatunkban felismerhetünk egy hasonló Markov-láncot. Ennek az állapotai legyenek azok, hogy az adott sorozatban éppen hány darab $1$-es szerepel a határvonal bal oldalán. Tudjuk, hogy ennek a lehetséges értékei $0, \dots{}, k$, ahol $k$ a kiindulási tömbhöz tartozó érték.
+
+Korábban már megadtuk a $p_i$ valószínűségeket, melyek pont a lánc átmeneti
+
 ## Megoldás kiírása irreducibilis tört alakban
