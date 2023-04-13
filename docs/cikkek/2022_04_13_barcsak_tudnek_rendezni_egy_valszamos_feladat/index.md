@@ -172,8 +172,22 @@ A memóriamentességi feltétel (vagy ú.n. Markov-feltétel) itt azt jelenti, h
 
 Feladatunkban felismerhetünk egy hasonló Markov-láncot. Ennek az állapotai legyenek azok, hogy az adott sorozatban éppen hány darab $1$-es szerepel a határvonal bal oldalán. Tudjuk, hogy ennek a lehetséges értékei $0, \dots{}, k$, ahol $k$ a kiindulási tömbhöz tartozó érték.
 
-Korábban már megadtuk a $p_i$ valószínűségeket, melyek pont a lánc átmeneti valószínűségei lesznek:
+Korábban már megadtuk a $p_i$ valószínűségeket, melyek pont ennek a láncnak az átmeneti valószínűségei lesznek:
 
 ![Rendezés Markov-lánca](img/sort_markov.png)
 
+A kérdés pedig most az, hogy mennyi a várható lépések száma, amíg a lánc a $k$ állapotból a $0$ állapotba ér?
+
+Ez az úgynevezett "hitting time", vagy magyarul elérési idő [1].
+
+Általánosan, jelöljük $\nu_{j\leftarrow{}i} = \nu_{j,i}$-vel azt, hogy ha a Markov-lánc aktuális állapota $i$, akkor várhatóan hány lépés után lesz a lánc állapota először $j$.
+
+A $\nu_{j,i}$ értékre fel lehet írni egy "önhivatkozó" formulát a [Teljes várható érték tétele](https://hu.wikipedia.org/wiki/Teljes_v%C3%A1rhat%C3%B3_%C3%A9rt%C3%A9k_t%C3%A9tele) segítségével.
+
+$$\nu_{j,i} = 1 + \sum\limits_{x\in{}S} p_{j,x}\nu_{j,i}$$
+
+
 ## Megoldás kiírása irreducibilis tört alakban
+
+
+[1]: https://mpaldridge.github.io/math2750/S08-hitting-times.html
