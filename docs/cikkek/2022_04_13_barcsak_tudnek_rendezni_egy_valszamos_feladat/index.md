@@ -19,6 +19,8 @@ A feladatnak legalább kettő, egymástól nagyon különböző megoldása van, 
 
 Az első dolog, amit a feladat kapcsán észreveszünk, hogy tudjuk hány darab $0$-ás és $1$-es található az $a$ tömbben, ami alapján be tudunk húzni egy elválasztó vonalat, ami majd a végeredményben a $0$-ák és $1$-esek határa lesz.
 
+![Elválasztó vonal](img/elvalaszto_vonal.png)
+
 Ezután a véletlenül választott $(i,j)$ pár elhelyezkedése szerint tulajdonképpen három különböző eset van:
 
 
