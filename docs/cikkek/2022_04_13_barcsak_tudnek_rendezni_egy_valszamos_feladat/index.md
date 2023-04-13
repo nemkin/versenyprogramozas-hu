@@ -98,17 +98,31 @@ $$E(X) = \frac{1}{p}.$$
 
 ### Vissza a feladathoz
 
-Valamilyen "addig csináljuk amíg nem sikerül" érzésünk van a feladattal kapcsolatban. Próbáljuk meg modellezni!
+Valamilyen "addig csináljuk amíg nem sikerül" érzésünk van a feladattal kapcsolatban, tehát valamilyen geometriai valószínűségi változó lesz a háttérben, aminek mostmár ismerjük a várható értékét. Próbáljuk meg valahogy így modellezni a feladatot!
 
-Hamar érezhető, hogy egyetlen változó kevés ahhoz, hogy modellezzük a problémát. Gondoljunk csak bele: ekkor a megállási feltétel az lenne, hogy "rendezetté vált" a tömb, ennek kellene egy fix $p$ valószínűséget meghatározni, ami minden lépésben ráadásul ugyanannyi kellene hogy legyen, hiszen a lépések függetlenek. Ezt így nehéz lenne kivitelezni...
+Hamar érezhető, hogy egyetlen változó kevés ahhoz, hogy modellezzük a problémát. Gondoljunk csak bele: ekkor a megállási feltétel az lenne, hogy "rendezetté vált" a tömb, ennek kellene egy fix $p$ valószínűséget meghatározni, ami minden lépésben ráadásul ugyanannyi kellene hogy legyen, hiszen a lépések függetlenek. Ez így nem fog működni.
 
+Helyette megtehetjük azt, hogy a lépéseket szétosztjuk több valószínűségi változó között: legyen a sikeres esemény inkább az, amikor a véletlenül választott $i$ és $j$ indexeink a határvonal két oldalára esnek és végrehajtódik egy csere. Ebből az eseményből több is lesz, vagyis több valószínűségi változóra lesz szükségünk. Azonban szerencsére már a kiindulási $a$ tömbből meg tudjuk mondani, hogy pontosan hány változóra van szükség: annyira, ahány sikeres eseményre szükség van, azaz ahány $1$-es van a határvonal bal oldalán: tegyük fel, hogy ez a szám $k$!
 
-Itt is valami ilyesmiről van szó, de a sinem elég egyetlen változóval modellezni a problémát, mivel 
+Ekkor a szükséges lépések számát leírhatjuk $k$ darab változó összegeként. Legyen $X_i$ az a változó, ami azon lépések számát írja le, ami ahhoz kell, hogy a bal oldalon $i$ darab $1$-esből $i-1$ darab $1$-est csináljunk (tehát az utolsó lépés volt az egyetlen sikeres és hasznos csere a lépéssorozatban).
 
-és pont ennek a változónak a várható értékét kérdezi a feladat
+Ekkor a lépések számát mostmár az $X_k + X_{k-1} + \cdots{} + X_1$ változók összege fogja leírni, nekünk pedig ennek az összegnek a várható értékét, azaz $E(X_k + X_{k-1} + \cdots{} + X_1)$-et kell megmondanunk.
 
-de sajnos a (3.) függetlenségi feltétel nem teljesül
+Itt van szükség arra a nagyon fontos valszám tételre, hogy **a várható érték lineáris**, azaz 
 
+$$E(X_k + X_{k-1} + \cdots{} + X_1) = E(X_k) + E(X_{k-1}) + \cdots{} + E(X_1).$$
+
+Ami nagyon meglepő ebben az összefüggésben az az, hogy ez még akkor is igaz, ha az egyes változók egymástól **nem függetlenek** és vannak is olyan vprog feladatok, ahol ezt a tulajdonságot nagyon erősen kihasználjuk. Ez most nem ilyen, itt a változóink függetlenek lesznek, ezért ez talán kevésbé meglepő, de akit érdekel a téma, például itt olvashat ezzel kapcsolatban: https://brilliant.org/wiki/linearity-of-expectation/. Lehet hozok majd erre építő feladatot is önképzőkörre. :)
+
+Ekkor már csak egy $E(X_i)$-t kell megmondanunk. Amennyiben $i$ darab $1$-es van a bal oldalon, akkor a $p_i$ sikeres csere valószínűséget felírhatjuk a kedvező / összes eset darabszám hányadossal a következőképpen:
+
+- Mivel $n$ elemű a tömb, az összes eset az, hogy hányféleképpen tudok egy rendezett indexpárt kiválasztani az elemek közül, ez $\binom{n}{2}$.
+- A kedvező esetek száma az, hogy hányféleképpen tudok $1$-est választani a határvonal bal oldalán és $0$-ást a jobb oldalán.
+- Amennyiben $i$ darab $1$-es van bal oldalt, tuti hogy ugyanennyi $0$-ás van jobb oldalt, azaz $i\cdot{}i = i^2$ a kedvező esetek száma.
+
+Tehát
+
+$$p_i = \frac{i^2}{\binom{n}{2}}.$$
 
 ## Második megoldási módszer: Markov lánc dinamikus programozással
 
