@@ -118,7 +118,7 @@ Ekkor már csak egy $E(X_i)$-t kell megmondanunk. Amennyiben $i$ darab $1$-es va
 
 - Mivel $n$ elemű a tömb, az összes eset az, hogy hányféleképpen tudok egy rendezett indexpárt kiválasztani az elemek közül, ez $\binom{n}{2}$.
 - A kedvező esetek száma az, hogy hányféleképpen tudok $1$-est választani a határvonal bal oldalán és $0$-ást a jobb oldalán.
-- Amennyiben $i$ darab $1$-es van bal oldalt, tuti hogy ugyanennyi $0$-ás van jobb oldalt, azaz $i\cdot{}i = i^2$ a kedvező esetek száma.
+- Amennyiben $i$ darab $1$-es van bal oldalt, tuti hogy ugyanennyi $0$-ás van jobb oldalt, ezekből akarunk egy párt választani, azaz $i\cdot{}i = i^2$ a kedvező esetek száma.
 
 Tehát
 
@@ -131,6 +131,8 @@ $$E(X_i) = \frac{1}{p_i} = \frac{\binom{n}{2}}{i^2}.$$
 Az összeg várható értéke pedig
 
 $$E = E(X_k) + E(X_{k-1}) + \cdots{} + E(X_1) = \sum\limits_{i=1}^{k}\frac{\binom{n}{2}}{i^2}.$$
+
+
 
 ## Második megoldási módszer: Markov lánc dinamikus programozással
 
