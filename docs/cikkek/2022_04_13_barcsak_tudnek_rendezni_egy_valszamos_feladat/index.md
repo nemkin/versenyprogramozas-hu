@@ -158,6 +158,10 @@ Ez példa egy nagyon egyszerű Markoc-láncra. A láncnak $2$ lehetséges állap
 - Annak a valószínűsége, hogy az $i.$ napon napos az idő, feltéve hogy az előző, $i-1.$ napon esős volt: $P(X_i = napos | X_{i-1} = esős) = 0.3$
 - Annak a valószínűsége, hogy az $i.$ napon esős az idő, feltéve hogy az előző, $i-1.$ napon is esős volt: $P(X_i = esős | X_{i-1} = esős) = 0.7$
 
+Ehhez szokott tartozni egy állapotátmeneti mátrix:
+
+![Időjárás átmeneti mátrix](img/idojaras_atmeneti_matrix.png)
+
 A memóriamentességi feltétel (vagy Markov-feltétel) itt azt jelenti, hogy az adott napi időjárás csak az azt megelőző nap időjárásától függ, "nem pedig az összes múltbéli nap időjárásától". Ezt az utóbbi idézőjelbe tett szöveget pontosan úgy kell megfogalmazni, hogy "amennyiben a tegnapi időjárás ismert, úgy a mai nap időjárása független minden korábbi nap időjárásától".
 
 ### Vissza a feladathoz
