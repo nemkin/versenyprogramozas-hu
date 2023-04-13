@@ -124,6 +124,14 @@ Tehát
 
 $$p_i = \frac{i^2}{\binom{n}{2}}.$$
 
+Ebből pedig következik, hogy a várható értéke egy változónak
+
+$$E(X_i) = \frac{1}{p_i} = \frac{\binom{n}{2}}{i^2}.$$
+
+Az összeg várható értéke pedig
+
+$$E = E(X_k) + E(X_{k-1}) + \cdots{} + E(X_1) = \sum\limits_{i=1}^{k}\frac{\binom{n}{2}}{i^2}.$$
+
 ## Második megoldási módszer: Markov lánc dinamikus programozással
 
 
