@@ -36,8 +36,46 @@ A 2. esetben ha történik csere azzal nem végeztünk hasznos munkát, hiszen p
 
 Tehát elmondható, hogy a feladat szempontjából lényegtelen a $0$-ák és $1$-esek pontos elhelyezkedése, csak az számít, hogy hány darab található belőlük a határvonal egy-egy oldalán. Hasznos lépés csak akkor történik, amikor az $i$ a határ előtt és a $j$ a határ után van, továbbá $a_i = 1$ és $a_j = 0$. Minden más esetben a lépés nem változtat az aktuális állapoton.
 
-## Első megoldási módszer: Várható érték linearitása
+## Első megoldási módszer: Geometriai eloszlás és várható érték linearitása
 
+Aki tanult valószínűségszámítást, az ráismerhet a feladatban egy nevezetes eloszlásra: ez a geometriai eloszlás. Ez mindig akkor kerül elő, amikor "addig ismétlünk valamit, amíg nem sikerül".
+
+Pontosabban:
+
+1. Egy véletlen kísérletsorozatot hajtunk végre.
+2. A kísérleteknek lehetséges kimenetelei közül megkülönböztetünk "sikeres" és nem "sikeres" kimeneteleket.
+  - A kimenetelek halmazát szoktuk eseménynek hívni, tehát van egy "sikerült" és egy "nem sikerült" eseményünk.
+  - A "sikeres" esemény valószínűsége ismert, jelölje $p$, a "nem sikeres" esemény valószínűsége ekkor $1-p$.
+4. Az egyes kísérleteket egymástól függetlenül végezzük (azaz a sikeresség valószínűségét nem befolyásolják a korábbi kísérletek eredményei).
+5. Akkor állunk meg, amikor sikeres eredményt kapunk.
+6. Definiálunk egy (valószínűségi) változót, ami azt mondja meg, hogy hány lépést végeztünk.
+
+Például ha az $X$ változó jelöli a lépések számát, akkor feltehetjük azt a kérdést, hogy mennyi a valószínűsége annak, hogy pontosan $i$ darab lépést végeztünk, azaz $P(X=i) = ?$.
+
+Ehhez kellett $i-1$ darab sikertelen, majd $1$ darab sikeres kísérlet, tehát
+
+$$P(X=i) = (1-p)^{i-1}p$$.
+
+$i$ lehetséges értékei pedig $1$ és $\infty$ között bármilyen lépésszám.
+
+A nevezetes eloszlások ismeretének előnye például, hogy tanuljuk a várható értéküket. Ezt az $X$ változóhoz $E(X)$-el jelöljük az angol "expectation value" kifejezésből. Definíció szerint a várható értéke egy változónak a lehetséges értékeinek a valószínűségükkel súlyozott összege, azaz
+
+$$E(X) = \sum\limits_{i} i \cdot{} P(X=i)$$
+
+
+A geometriai eloszlás várható értéke például $\frac{1}{p}$.
+
+
+Valamilyen "addig csináljuk amíg nem sikerül" érzésünk van a feladattal kapcsolatban. Próbáljuk meg modellezni!
+
+Hamar érezhető, hogy egyetlen változó kevés ahhoz, hogy modellezzük a problémát. Gondoljunk csak bele: ekkor a megállási feltétel az lenne, hogy "rendezetté vált" a tömb, ennek kellene egy fix $p$ valószínűséget meghatározni, ami minden lépésben ráadásul ugyanannyi kellene hogy legyen, hiszen a lépések függetlenek. Ezt így nehéz lenne kivitelezni...
+
+
+Itt is valami ilyesmiről van szó, de a sinem elég egyetlen változóval modellezni a problémát, mivel 
+
+és pont ennek a változónak a várható értékét kérdezi a feladat
+
+de sajnos a (3.) függetlenségi feltétel nem teljesül
 
 
 ## Második megoldási módszer: Markov lánc dinamikus programozással
