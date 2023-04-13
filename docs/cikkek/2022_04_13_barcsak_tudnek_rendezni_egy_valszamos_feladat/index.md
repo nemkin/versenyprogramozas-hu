@@ -138,5 +138,17 @@ Mielőtt ezt megtennénk, nézzünk meg először egy teljesen másik megoldást
 
 ## Második megoldási módszer: Markov lánc dinamikus programozással
 
+### Egy kis kitérő: a Markov láncokról (annak, aki még nem ismeri)
+
+A Markov-láncok valószínűségszámításban olyan véletlen folyamatokat írnak le, melyek teljesítenek valamilyen fajta memóriamentességi kritériumot. Most ezeknek egy speciális fajtájáról fogok csak beszélni, de az egyszerűség kedvéért csak Markov-láncként fogok hivatkozni rájuk.
+
+Képzeljünk el például egy olyan időjárási modellt, ami a következőket állítja:
+
+- Ha tegnap sütött a nap, akkor ma $90\%$ valószínűséggel szintén sütni fog a nap.
+- Ha tegnap esett az eső, akkor ma $70\%$ valószínűséggel szintén esni fog az eső.
+
+Ezeket az állításokat egy ábrán szemléltethetjük:
+
+
 
 ## Megoldás kiírása irreducibilis tört alakban
