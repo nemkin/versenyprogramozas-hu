@@ -28,7 +28,11 @@ Ezután a véletlenül választott $i<j$ pár elhelyezkedése szerint tulajdonk�
 
 Az 1. esetben ha történik csere azzal hasznos munkát végeztünk, hiszen növeltük a $0$-ák számát a vonal előtt és az $1$-esek számát a vonal után, ezzel közelebb kerültünk a célállapothoz.
 
+![Hasznos munka](img/hasznos_munka.png)
+
 A 2. esetben ha történik csere azzal nem végeztünk hasznos munkát, hiszen pusztán határokon belül mozgattunk dolgokat, továbbra is ugyanannyi $1$-est kell még a határ bal oldaláról a jobb oldalára mozgatni, miközben a helyükre $0$-ákat hozunk.
+
+![Haszontala munka](img/haszontalan_munka.png)
 
 Tehát elmondható, hogy a feladat szempontjából hasznos lépés az, amikor az $i$ a határ előtt és a $j$ a határ után van és $a_i = 1$, illetve $a_j = 0$.
 
