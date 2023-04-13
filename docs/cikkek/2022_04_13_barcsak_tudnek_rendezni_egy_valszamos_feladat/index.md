@@ -136,7 +136,7 @@ Tulajdonképpen ezzel meg is oldottuk a feladatot elméleti szinten, ennek az ö
 
 Mielőtt ezt megtennénk, nézzünk meg először egy teljesen másik megoldást:
 
-## Második megoldási módszer: Markov lánc dinamikus programozással
+## Második megoldási módszer: Markov lánc elérési idők dinamikus programozással
 
 ### Egy kis kitérő: a Markov láncokról (annak, aki még nem ismeri)
 
