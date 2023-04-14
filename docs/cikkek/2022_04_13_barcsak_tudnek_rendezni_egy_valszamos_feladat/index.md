@@ -181,6 +181,7 @@ A kérdés pedig most az, hogy mennyi a várható lépések száma, amíg a lán
 Ez az úgynevezett "hitting time", vagy magyarul elérési idő.
 
 Általánosan levezethető [1], a következők szerint:
+[1]: https://mpaldridge.github.io/math2750/S08-hitting-times.html
 
 Jelöljük $\nu_{j\leftarrow{}i} = \nu_{j,i}$-vel azt, hogy ha a Markov-lánc aktuális állapota $i$, akkor várhatóan hány lépés után lesz a lánc állapota először $j$.
 
@@ -218,5 +219,8 @@ $$ dp[0] = 0 $$
 
 ## Megoldás kiírása irreducibilis tört alakban
 
+Az első megoldás esetén a következő összeget kell kiszámoltatni:
 
-[1]: https://mpaldridge.github.io/math2750/S08-hitting-times.html
+$$E = \sum\limits_{i=1}^{k}\frac{\binom{n}{2}}{i^2}$$
+
+
