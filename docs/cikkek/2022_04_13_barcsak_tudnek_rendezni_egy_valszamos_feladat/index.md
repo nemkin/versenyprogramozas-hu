@@ -217,6 +217,12 @@ $$ dp[k] = \frac{1}{p_k} + dp[k-1] $$
 
 $$ dp[0] = 0 $$
 
+Ebből szépen látszik, hogy
+
+$$dp[k] = \sum\limits_{i=1}^{k} \frac{1}{p_k}$$
+
+Ami pedig pont ugyanaz a képlet, amit a geometriai eloszlásos megoldásból is kihoztunk! :)
+
 ## Megoldás kiírása irreducibilis tört alakban
 
 Az első megoldás esetén a következő összeget kell kiszámoltatni:
