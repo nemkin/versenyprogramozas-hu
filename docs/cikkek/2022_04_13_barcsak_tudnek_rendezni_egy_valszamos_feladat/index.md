@@ -241,7 +241,7 @@ $$ P = n(n-1) \sum\limits_{i=1}^{k}\frac{D}{i^2} $$
 
 $$ Q = 2D $$
 
-Pythonban pedig a `pow` függvény 3. paraméterébe beírható egy moduló, így moduló lehet vele a $Q$ inverzét meghatározni a \frac{P}{Q} számolásához.
+Pythonban pedig a `pow` függvény 3. paraméterébe beírható egy moduló, így moduló lehet vele a $Q$ inverzét meghatározni a $\frac{P}{Q}$ számolásához.
 
 Forráskód:
 ```python
