@@ -221,6 +221,18 @@ $$ dp[0] = 0 $$
 
 Az első megoldás esetén a következő összeget kell kiszámoltatni:
 
-$$E = \sum\limits_{i=1}^{k}\frac{\binom{n}{2}}{i^2}$$
+$$E = \sum\limits_{i=1}^{k}\frac{\binom{n}{2}}{i^2} = \frac{n(n-1)}{2}\sum\limits_{i=1}^{k}\frac{1}{i^2} $$
+
+Hozzuk a szummában szereplő törteket közös nevezőre!
+
+Legyen ez a közös nevező $D = \prod\limits_{i=1}^{k}i^2$
+
+$$E = \frac{n(n-1)}{2} \frac{\sum\limits_{i=1}^{k}\frac{D}{i^2}}{D}  = \frac{P}{Q}$$
+
+Ez azért jó nekünk, mert ennek a törtnek a számlálója és a nevezője is biztosan egész számok, ezért külön ki tudjuk számolni őket:
+
+$$ P = n(n-1) \sum\limits_{i=1}^{k}\frac{D}{i^2} $$
+
+$$ Q = 2D $$
 
 
