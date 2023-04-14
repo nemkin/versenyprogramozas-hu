@@ -212,6 +212,10 @@ $$ p_k \cdot{} dp[k] = 1 + p_k \cdot{} dp[k-1] $$
 
 $$ dp[k] = \frac{1}{p_k} + dp[k-1] $$
 
+- Továbbá:
+
+$$ dp[0] = 0 $$
+
 ## Megoldás kiírása irreducibilis tört alakban
 
 
