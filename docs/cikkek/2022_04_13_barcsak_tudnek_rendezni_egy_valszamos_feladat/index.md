@@ -158,7 +158,7 @@ Ez példa egy nagyon egyszerű Markoc-láncra. A láncnak $2$ lehetséges állap
 - Annak a valószínűsége, hogy az $i.$ napon napos az idő, feltéve hogy az előző, $i-1.$ napon esős volt: $P(X_i = napos | X_{i-1} = esős) = 0.3$
 - Annak a valószínűsége, hogy az $i.$ napon esős az idő, feltéve hogy az előző, $i-1.$ napon is esős volt: $P(X_i = esős | X_{i-1} = esős) = 0.7$
 
-Ehhez szokott tartozni egy állapotátmeneti mátrix:
+Ehhez szokott tartozni egy állapotátmeneti (általában $\Pi$-vel jelölt) mátrix:
 
 ![Időjárás átmeneti mátrix](img/idojaras_atmeneti_matrix.png)
 
@@ -178,16 +178,39 @@ Korábban már megadtuk a $p_i$ valószínűségeket, melyek pont ennek a láncn
 
 A kérdés pedig most az, hogy mennyi a várható lépések száma, amíg a lánc a $k$ állapotból a $0$ állapotba ér?
 
-Ez az úgynevezett "hitting time", vagy magyarul elérési idő [1].
+Ez az úgynevezett "hitting time", vagy magyarul elérési idő.
 
-Általánosan, jelöljük $\nu_{j\leftarrow{}i} = \nu_{j,i}$-vel azt, hogy ha a Markov-lánc aktuális állapota $i$, akkor várhatóan hány lépés után lesz a lánc állapota először $j$.
+Általánosan levezethető [1], a következők szerint:
 
-A $\nu_{j,i}$ értékre fel lehet írni egy "önhivatkozó" formulát a [Teljes várható érték tétele](https://hu.wikipedia.org/wiki/Teljes_v%C3%A1rhat%C3%B3_%C3%A9rt%C3%A9k_t%C3%A9tele) segítségével.
+Jelöljük $\nu_{j\leftarrow{}i} = \nu_{j,i}$-vel azt, hogy ha a Markov-lánc aktuális állapota $i$, akkor várhatóan hány lépés után lesz a lánc állapota először $j$.
 
-TODO Nem teljesen jó
+- Ha $i = j$, akkor $\nu_{i,i} = 0$.
+- Egyébként $\nu_{j,i}$-re pedig kell legalább egy lépés.
+  - Ez az egy lépés az állapot kimenő éleire írt valószínűségekkel fog másik $s$ állapotba lépni.
+  - Ehhez a másik $s$ állapothoz szintén tartozik valamilyen várható elérési idő a célállapot felé.
+  - A várható érték linearitása miatt felírható a követkző "önhivatkozó formula":
+    - $S$ jelöli a lehetséges állapotok halmazát.
+    - $p_{s,i}$ jelöli az állapotáteneti mátrix $s$. sorának $i$. oszlopát, vagyis hogy mekkora valószínűséggel lépünk $i$ állapotból $s$ állapotba.
 
-$$\nu_{j,i} = 1 + \sum\limits_{x\in{}S} p_{j,x}\nu_{x,i}$$
+$$ \nu_{j,i} = 1 + \sum\limits_{s\in{}S} \nu_{j,s}p_{s,i} $$
 
+Itt a [Teljes várható érték tételére](https://hu.wikipedia.org/wiki/Teljes_v%C3%A1rhat%C3%B3_%C3%A9rt%C3%A9k_t%C3%A9tele) támaszkodtunk.
+
+Ez speciálisan a mi Markov-láncunkra egy nagyon szép dinamikus programozós megoldássá alakul át.
+
+- Mivel a $0$ állapotot akarjuk elérni, ezért csak az a kérdés melyik állapotból jövünk, jelölje ezt $k$.
+- Jelölje $dp[k]$ azt, hogy mennyi a várható elérési idő a $k$ állapotból a $0$-ba.
+- Tudjuk, hogy $k\neq{}0$ esetén biztosan kell legalább egyet lépni.
+- Ez a lépés lehet sikertelen ($1-p_k$ valószínűséggel), vagy sikeres ($p_k$ valószínűséggel).
+- A fenti általános képletet felírva erre a feladatra:
+
+$$ dp[k] = 1 + (1-p_k) dp[k] + p_k dp[k-1] $$
+
+- Végül ezt átrendezve:
+
+$$ p_k \cdot{} dp[k] = 1 + p_k \cdot{} dp[k-1] $$
+
+$$ dp[k] = \frac{1}{p_k} + dp[k-1] $$
 
 ## Megoldás kiírása irreducibilis tört alakban
 
