@@ -253,20 +253,25 @@ for _ in range(cases):
   for i in range(hatar):
     if a[i] == 1:
       k += 1
-     
+
+  if k==0:
+    print(0)
+    continue
+
   D = 1
   for i in range(1, k+1):
     D *= i*i
 
-  P = n*(n-1)
+  S = 0
   for i in range(1, k+1):
-    P *= D / (i * i)
-  
+    S += D / (i * i)
+  P = n*(n-1) * S
+
   Q = 2 * D
 
   mod = 998244353
   QInv = pow(Q, -1, mod)
-     
+  
   print(int((P * QInv) % mod))
 ```
 
