@@ -283,4 +283,5 @@ for _ in range(cases):
   print(int((P * QInv) % mod))
 ```
 
+És ez jelen pillanatban time limites lesz. :) (TODO)
 
