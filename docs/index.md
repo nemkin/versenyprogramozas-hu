@@ -15,5 +15,5 @@ Az alkalmak online formában, Discordon valósulnak meg.
 
 ## Kapcsolat
 
-**Weboldal**: [https://versenyprogramozas.hu/](https://versenyprogramozas.hu/)  
+**Weboldal**: [https://cs.bme.hu/acm](https://cs.bme.hu/acm)  
 **E-mail**: [nemkin@cs.bme.hu](mailto:nemkin@cs.bme.hu)
