@@ -17,13 +17,20 @@ social:
 lang: en
 timezone: Europe/Budapest
 
-theme: jekyll-theme-chirpy
-theme_mode: dark
+remote_theme: nemkin/jekyll-theme-chirpy
 
 toc: true
 paginate: 10
 pwa:
   enabled: true
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-archives
+  - jekyll-sitemap
 
 # ------------ The following options are not recommended to be modified ------------------
 
