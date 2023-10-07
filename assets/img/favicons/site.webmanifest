@@ -1,9 +1,9 @@
 
 
 {
-  "name": "Verseny programozás2",
-  "short_name": "Verseny programozás2",
-  "description": "Hungarian college students' competitive programming study group. ICPC, Codeforces, LeetCode, etc.",
+  "name": "VProg",
+  "short_name": "VProg",
+  "description": "Magyar egyetemisták versenyprogramozási özössége. ICPC, Codeforces, LeetCode, stb.",
   "icons": [
     {
       "src": "/versenyprogramozas-hu/assets/img/favicons/android-chrome-192x192.png",
