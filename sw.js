@@ -1,6 +1,6 @@
 self.importScripts('/versenyprogramozas-hu/assets/js/data/swcache.js');
 
-const cacheName = 'chirpy-1696722339';
+const cacheName = 'chirpy-1696722929';
 
 function verifyDomain(url) {
   for (const domain of allowedDomains) {
