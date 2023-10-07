@@ -1,13 +1,13 @@
-title: Verseny programozás2
-tagline: Hungarian college students' competitive programming study group. ICPC, Codeforces, LeetCode, etc.
-description: Hungarian college students' competitive programming study group. ICPC, Codeforces, LeetCode, etc.
+title: VProg
+tagline: Magyar egyetemisták versenyprogramozási özössége. ICPC, Codeforces, LeetCode, stb.
+description: Magyar egyetemisták versenyprogramozási özössége. ICPC, Codeforces, LeetCode, stb.
 avatar: /assets/img/balloons.jpg
 
 github:
   username: versenyprogramozas
 
 social:
-  name: Verseny programozás
+  name: Versenyprogramozás
   email: nemkin@cs.bme.hu
   links:
     - https://versenyprogramozas.hu
