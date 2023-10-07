@@ -11,7 +11,7 @@ const resource = [
   '/versenyprogramozas-hu/404.html',
 
   
-    '/versenyprogramozas-hu/study-group/',
+    '/versenyprogramozas-hu/onkepzokor/',
   
     '/versenyprogramozas-hu/categories/',
   
