@@ -1,0 +1,23 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://dev.nemk.in//versenyprogramozas-hu/</id>
+  <title>Versenyprogramozás</title>
+  <subtitle>Hungarian college students' competitive programming study group. ICPC, Codeforces, LeetCode, etc.</subtitle>
+  <updated>2023-10-07T22:38:51+02:00</updated>
+  <author>
+    <name>Versenyprogramozás</name>
+    <uri>https://dev.nemk.in//versenyprogramozas-hu/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://dev.nemk.in//versenyprogramozas-hu/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="https://dev.nemk.in//versenyprogramozas-hu/"/>
+  <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
+  <rights> © 2023 Versenyprogramozás </rights>
+  <icon>/versenyprogramozas-hu/assets/img/favicons/favicon.ico</icon>
+  <logo>/versenyprogramozas-hu/assets/img/favicons/favicon-96x96.png</logo>
+
+
+</feed>
+
+
