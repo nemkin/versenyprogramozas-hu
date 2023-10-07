@@ -1,6 +1,6 @@
 ---
 layout: categories
-title: Categories
+title: Kategóriák
 icon: fa-solid fa-bars-staggered
 order: 3
 ---

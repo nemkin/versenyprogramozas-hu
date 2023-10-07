@@ -1,6 +1,6 @@
 ---
 layout: tags
-title: Tags
+title: Címkék
 icon: fa-solid fa-tags
 order: 4
 ---

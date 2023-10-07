@@ -1,6 +1,6 @@
 ---
 layout: archives
-title: Archives
+title: Archívum
 icon: fa-solid fa-box-archive
 order: 5
 ---

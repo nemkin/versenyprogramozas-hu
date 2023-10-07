@@ -14,7 +14,7 @@ social:
     - https://github.com/versenyprogramozas
     - https://cs.bme.hu/icpc
 
-lang: en
+lang: hu
 timezone: Europe/Budapest
 
 remote_theme: nemkin/jekyll-theme-chirpy
