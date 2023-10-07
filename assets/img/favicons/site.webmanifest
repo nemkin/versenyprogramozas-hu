@@ -3,7 +3,7 @@
 {
   "name": "VProg",
   "short_name": "VProg",
-  "description": "Magyar egyetemisták versenyprogramozási özössége. ICPC, Codeforces, LeetCode, stb.",
+  "description": "Magyar egyetemisták versenyprogramozási közössége. ICPC, Codeforces, LeetCode, stb.",
   "icons": [
     {
       "src": "/versenyprogramozas-hu/assets/img/favicons/android-chrome-192x192.png",
