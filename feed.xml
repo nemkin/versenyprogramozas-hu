@@ -4,7 +4,7 @@
   <id>https://dev.nemk.in//versenyprogramozas-hu/</id>
   <title>VProg</title>
   <subtitle>Magyar egyetemisták versenyprogramozási közössége. ICPC, Codeforces, LeetCode, stb.</subtitle>
-  <updated>2023-10-08T01:55:29+02:00</updated>
+  <updated>2023-10-08T02:03:28+02:00</updated>
   <author>
     <name>Versenyprogramozás</name>
     <uri>https://dev.nemk.in//versenyprogramozas-hu/</uri>
@@ -17,6 +17,60 @@
   <icon>/versenyprogramozas-hu/assets/img/favicons/favicon.ico</icon>
   <logo>/versenyprogramozas-hu/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Bárcsak tudnék rendezni (egy valszámos feladat)</title>
+    <link href="https://dev.nemk.in//versenyprogramozas-hu/posts/2022-04-12-barcsak-tudnek-rendezni/" rel="alternate" type="text/html" title="Bárcsak tudnék rendezni (egy valszámos feladat)" />
+    <published>2022-04-12T13:00:00+02:00</published>
+  
+    <updated>2022-04-12T13:00:00+02:00</updated>
+  
+    <id>https://dev.nemk.in//versenyprogramozas-hu/posts/2022-04-12-barcsak-tudnek-rendezni/</id>
+    <content src="https://dev.nemk.in//versenyprogramozas-hu/posts/2022-04-12-barcsak-tudnek-rendezni/" />
+    <author>
+      <name>Versenyprogramozás</name>
+    </author>
+
+  
+    
+    <category term="codeforces" />
+    
+    <category term="valszam" />
+    
+  
+
+  
+    <summary>Ebben a cikkben szeretnék egy kicsit bővebben a Codeforces 1753C: Wish I Knew How to Sort feladat megoldásairól beszélni.</summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Google Code Jam 2021 - Qualification Round</title>
+    <link href="https://dev.nemk.in//versenyprogramozas-hu/posts/2021-04-16-google-code-jam-qualification-round/" rel="alternate" type="text/html" title="Google Code Jam 2021 - Qualification Round" />
+    <published>2021-04-16T13:00:00+02:00</published>
+  
+    <updated>2021-04-16T13:00:00+02:00</updated>
+  
+    <id>https://dev.nemk.in//versenyprogramozas-hu/posts/2021-04-16-google-code-jam-qualification-round/</id>
+    <content src="https://dev.nemk.in//versenyprogramozas-hu/posts/2021-04-16-google-code-jam-qualification-round/" />
+    <author>
+      <name>Versenyprogramozás</name>
+    </author>
+
+  
+    
+    <category term="versenyek" />
+    
+  
+
+  
+    <summary>Pár hete zajlott le a 2021-es Google Code Jam Qualification Round-ja!</summary>
+  
+
+  </entry>
 
 </feed>
 
