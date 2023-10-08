@@ -4,13 +4,13 @@
   <id>https://dev.nemk.in//versenyprogramozas-hu/</id>
   <title>VProg</title>
   <subtitle>Magyar egyetemisták versenyprogramozási közössége. ICPC, Codeforces, LeetCode, stb.</subtitle>
-  <updated>2023-10-08T02:09:21+02:00</updated>
+  <updated>2023-10-08T02:10:50+02:00</updated>
   <author>
     <name>Versenyprogramozás</name>
     <uri>https://dev.nemk.in//versenyprogramozas-hu/</uri>
   </author>
   <link rel="self" type="application/atom+xml" href="https://dev.nemk.in//versenyprogramozas-hu/feed.xml"/>
-  <link rel="alternate" type="text/html" hreflang="hu"
+  <link rel="alternate" type="text/html" hreflang="hu-HU"
     href="https://dev.nemk.in//versenyprogramozas-hu/"/>
   <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
   <rights> © 2023 Versenyprogramozás </rights>
