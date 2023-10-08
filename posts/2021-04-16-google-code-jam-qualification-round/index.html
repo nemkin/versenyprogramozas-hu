@@ -559,6 +559,17 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -574,6 +585,39 @@
       
         
         
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
       
 
       
@@ -698,7 +742,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="2140 words"
+  title="2051 words"
 >
   <em>11 min</em> read</span>
 
@@ -733,13 +777,43 @@
 
 <p>(A tömbök indexelése 1-től kezdődik.)</p>
 
-<p>```plain linenums=”1”
-Reversort(L):
-  for i := 1 to len(L) - 1
-    j := L[i..]-ben a minimum érték indexe
-    Reverse(L[i..j])</p>
 <div class="language-plaintext highlighter-rouge"><div class="code-header">
         <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>Reversort(L):
+  for i := 1 to len(L) - 1
+    j := L[i..]-ben a minimum érték indexe
+    Reverse(L[i..j])
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>A fenti kód végigiterál a tömbön és minden lépésben az aktuális pozíción lévő számot kicseréli a még hátralévő tömbben lévő minimális számmal, mindezt úgy, hogy a közöttük lévő számokat is fordított sorrendbe teszi, tehát megfordítja ezt az egész listarészt.</p>
+
+<p>Látható, hogy az iteráció végén a tömbben lévő számok növekvő sorrendben fognak állni.</p>
+
+<p>Ez az algoritmus eléggé pazarló, a feladat az, hogy kiszámoljuk hogy mennyire. A bemeneten kapunk egy listát, össze-vissza sorrendben, nekünk pedig össze kell adni (az erre lefuttatott algoritmusban) iterációnként a megfordított listák hosszait és ezt az összeget kiírni a kimenetre.</p>
+
+<h3 id="megoldás"><span class="me-2">Megoldás</span><a href="#megoldás" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>Egyetlen teszthalmaz van, ami rögtön látszik rajta, hogy nagyon kicsi: T=100 db teszteset, legfeljebb N=100 db számmal a listában. Ha a fenti algoritmust megnézzük, nagy vonalakban ~N-szer hajtja végre a ciklust, belül a minimum megtalálása ~N lépés, a string megfordítása szintén ~N lépés, tehát ~2*N^2=2*10^4 lépésben fut. Fontos tudni, hogy 1 mp körülbelül 10^7 ~ 10^8 db utasításnak felel meg programozási versenyeken, tehát bőven 1 mp alatt vagyunk. A teszthalmazra 10 mp time limit van és 1 GB memóriát használhatunk, mindkettőbe bele fogunk férni ha csak lekódoljuk a fenti pszeudokódot.</p>
+
+<p>Érdemes tehát ezt a feladatot megcsinálni, mert:</p>
+
+<ul>
+  <li>7 pontot ad, ez a 30-ból elég sok.</li>
+  <li>Csak a megadott pszeudokódot kell egy konkrét programozási nyelvre lefordítani, várhatóan gyorsan elkészülünk.</li>
+  <li>Azonnal látható az eredményünk (Visible Verdict), biztosan tudhatjuk hogy megkaptuk a 7 pontot.</li>
+  <li>A feladat szövege írja, hogy egy későbbi feladat ehhez nagyon hasonló, lehet hogy 2 legyet ütünk egy csapásra ha foglalkozunk most ezzel.</li>
+</ul>
+
+<p>Nyelvnek a Pythont választottam a tömörsége és a pszeudokódhoz hasonló szintaxisa miatt. Programozási versenyeken C++ és Python között szoktam választani, attól függően hogy mennyire szűk az időkorlát a teszteseteken. Itt most nem volt az, ezért jó választás a Python.</p>
+
+<p>A következő kódot adtam be (a kommentek nélkül):</p>
+
+<div class="language-python highlighter-rouge"><div class="code-header">
+        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -751,64 +825,18 @@ Reversort(L):
 9
 10
 11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-</pre></td><td class="rouge-code"><pre>
-A fenti kód végigiterál a tömbön és minden lépésben az aktuális pozíción lévő számot kicseréli a még hátralévő tömbben lévő minimális számmal, mindezt úgy, hogy a közöttük lévő számokat is fordított sorrendbe teszi, tehát megfordítja ezt az egész listarészt.
-
-Látható, hogy az iteráció végén a tömbben lévő számok növekvő sorrendben fognak állni.
-
-Ez az algoritmus eléggé pazarló, a feladat az, hogy kiszámoljuk hogy mennyire. A bemeneten kapunk egy listát, össze-vissza sorrendben, nekünk pedig össze kell adni (az erre lefuttatott algoritmusban) iterációnként a megfordított listák hosszait és ezt az összeget kiírni a kimenetre.
-
-### Megoldás
-
-Egyetlen teszthalmaz van, ami rögtön látszik rajta, hogy nagyon kicsi: T=100 db teszteset, legfeljebb N=100 db számmal a listában. Ha a fenti algoritmust megnézzük, nagy vonalakban ~N-szer hajtja végre a ciklust, belül a minimum megtalálása ~N lépés, a string megfordítása szintén ~N lépés, tehát ~2\*N^2=2\*10^4 lépésben fut. Fontos tudni, hogy 1 mp körülbelül 10^7 ~ 10^8 db utasításnak felel meg programozási versenyeken, tehát bőven 1 mp alatt vagyunk. A teszthalmazra 10 mp time limit van és 1 GB memóriát használhatunk, mindkettőbe bele fogunk férni ha csak lekódoljuk a fenti pszeudokódot.
-
-Érdemes tehát ezt a feladatot megcsinálni, mert:
-
-- 7 pontot ad, ez a 30-ból elég sok.
-- Csak a megadott pszeudokódot kell egy konkrét programozási nyelvre lefordítani, várhatóan gyorsan elkészülünk.
-- Azonnal látható az eredményünk (Visible Verdict), biztosan tudhatjuk hogy megkaptuk a 7 pontot.
-- A feladat szövege írja, hogy egy későbbi feladat ehhez nagyon hasonló, lehet hogy 2 legyet ütünk egy csapásra ha foglalkozunk most ezzel.
-
-Nyelvnek a Pythont választottam a tömörsége és a pszeudokódhoz hasonló szintaxisa miatt. Programozási versenyeken C++ és Python között szoktam választani, attól függően hogy mennyire szűk az időkorlát a teszteseteken. Itt most nem volt az, ezért jó választás a Python.
-
-A következő kódot adtam be (a kommentek nélkül):
-
-```py linenums="1"
-n = int(input()) # Input 1. sora: tesztesetek száma
-for n_i in range(n):
-  cost = 0
-  m = int(input()) # Teszteset 1. sora: lista hossza
-  l = list(map(int, input().split(' '))) # Teszteset 2. sora: maga a lista
-  # Itt kezdődik a Reversort
-  for i in range(m-1):
-    j = l.index(min(l[i:m])) # Legkisebb elem megkeresése a hátralévő tömbben.
-    cost += j-i+1 # Résztömb hosszának hozzáadása a végleges költséghez.
-    l[i:j+1] = reversed(l[i:j+1]) # Résztömb megfordítása.
-  print(f"Case #{n_i+1}: {cost}") # Eredmény kiírása megfelelő formátumban.
-</pre></td></tr></tbody></table></code></div></div>
+</pre></td><td class="rouge-code"><pre><span class="n">n</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span> <span class="c1"># Input 1. sora: tesztesetek száma
+</span><span class="k">for</span> <span class="n">n_i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="n">cost</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span> <span class="c1"># Teszteset 1. sora: lista hossza
+</span>  <span class="n">l</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">(</span><span class="sh">'</span><span class="s"> </span><span class="sh">'</span><span class="p">)))</span> <span class="c1"># Teszteset 2. sora: maga a lista
+</span>  <span class="c1"># Itt kezdődik a Reversort
+</span>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">l</span><span class="p">.</span><span class="nf">index</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">m</span><span class="p">]))</span> <span class="c1"># Legkisebb elem megkeresése a hátralévő tömbben.
+</span>    <span class="n">cost</span> <span class="o">+=</span> <span class="n">j</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="c1"># Résztömb hosszának hozzáadása a végleges költséghez.
+</span>    <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nf">reversed</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># Résztömb megfordítása.
+</span>  <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Case #</span><span class="si">{</span><span class="n">n_i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">cost</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span> <span class="c1"># Eredmény kiírása megfelelő formátumban.
+</span></pre></td></tr></tbody></table></code></div></div>
 
 <p>Látszik, hogy a Reversort pszeudokódját szinte csak le kellett fordítani Python nyelvre és készen is volt a feladat. Az indexekkel kellett csak egy kicsit küzdeni, mire kijöttek jól (tanulság: Pythonban minden beépített függvénynél balról zárt, jobbról nyílt az összes intervallum), illetve a list.index és a reversed függvényt eddig nem ismertem, ezekre rá kellett keresni.</p>
 
@@ -820,7 +848,7 @@ for n_i in range(n):
 
 <p>A sztoritól eltekintve annyi a feladat, hogy kapunk egy stringet, ami C, J illetve ? karaktereket tartalmaz, a ? karakterek helyére kell úgy C és J karaktereket írni, hogy a kapott stringben a lehető legkevesebb legyen a CJ és a JC részstringek darabszámának a súlyozott összege. A CJ-k darabszámát X-el, a JC-k darabszámát Y-al súlyozzuk, ezeket a paramétereket szintén az inputon kapjuk meg.</p>
 
-<h3 id="megoldás"><span class="me-2">Megoldás</span><a href="#megoldás" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h3 id="megoldás-1"><span class="me-2">Megoldás</span><a href="#megoldás-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>A három teszthalmazból az 1. (5 pontért) nagyon pici, legfeljebb 10 hosszú lehet a string, itt a max ~2^10 db összes esetet is végig tudnánk próbálgatni. Ha olyan helyzetben lennénk, hogy a többi feladat közül már megoldottunk párat és pont ez az 5 pont hiányzik a 30-ból, akkor itt érdemes ennyit lekódolni és nem foglalkozni a többi tesztesettel.</p>
 
@@ -830,18 +858,94 @@ for n_i in range(n):
 
 <p>Az első két teszthalmazra a következő Python kódot adtam be:</p>
 
-<p>```py linenums=”1”
-n = int(input())
-for n_i in range(n):
-  x, y, m = input().split()
-  x = int(x)
-  y = int(y)
-  m = m.replace(‘?’, ‘’)
-  xc = m.count(‘CJ’)
-  yc = m.count(‘JC’)
-  print(f”Case #{n_i+1}: {x<em>xc + y</em>yc}”)</p>
-<div class="language-plaintext highlighter-rouge"><div class="code-header">
-        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+<div class="language-python highlighter-rouge"><div class="code-header">
+        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="n">n</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">n_i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">()</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="sh">'</span><span class="s">?</span><span class="sh">'</span><span class="p">,</span> <span class="sh">''</span><span class="p">)</span>
+  <span class="n">xc</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="sh">'</span><span class="s">CJ</span><span class="sh">'</span><span class="p">)</span>
+  <span class="n">yc</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="sh">'</span><span class="s">JC</span><span class="sh">'</span><span class="p">)</span>
+  <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Case #</span><span class="si">{</span><span class="n">n_i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">x</span><span class="o">*</span><span class="n">xc</span> <span class="o">+</span> <span class="n">y</span><span class="o">*</span><span class="n">yc</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>Ha minimalizálni szeretnénk a CJ-k és a JC-k darabszámát, akkor tulajdonképpen a váltakozásokat szeretnénk minimalizálni. Ha egyszerűen végigmegyek balról-jobbra a stringen és minden ? helyére beírom a tőle balra lévő karaktert (aki már nem lehet ?, mert az előző lépésben biztosan átírtam), illetve ha ? sorozattal kezdődik a string, akkor azok helyére balról az első nem-? karaktert, akkor pont egy ilyen minimalizált megoldást kapok. Ebben a C-kből és J-kből álló stringben kell megszámolni a CJ és JC részstringeket és kiírni a súlyozott összeget: ez egy jó megoldás lenne.</p>
+
+<p>Viszont ennél sokkal egyszerűbb csak törölni a ?-eket, hiszen a fenti módszer csak annyit csinál, hogy a ?-ek helyére “elcsúsztatja” valamelyik oldalról az első nem ? karaktert, tehát új váltakozást nem fog bevezetni, csak a meglévőket húzza össze egymás mellé.</p>
+
+<p>Például ezt az input stringet:</p>
+
+<p><code class="language-plaintext highlighter-rouge">???JC??C??JCJ</code></p>
+
+<p>Erre fogja átírni:</p>
+
+<p><code class="language-plaintext highlighter-rouge">JJJJCCCCCCJCJ</code></p>
+
+<p>De ebben pont ugyanannyi CJ és JC van, mint a kérdőjelek törlésével kapott stringben:</p>
+
+<p><code class="language-plaintext highlighter-rouge">JCCJCJ</code></p>
+
+<p>Ezt viszont egy kicsit könnyebb programozottan kiszámolni az inputból (<code class="language-plaintext highlighter-rouge">m.replace('?', '')</code>).</p>
+
+<p>Nyelvnek pedig itt szintén érdemes a Pythont választani, mert tömör és mert 10 mp-ünk van teszthalmazonként, ami bőven elég a fenti program lefuttatására.</p>
+
+<p>Ezzel szereztünk összesen 16 pontot, még 7 pontra van szükségünk.</p>
+
+<h2 id="3-feladat-reversort-engineering"><span class="me-2">3. Feladat: Reversort Engineering</span><a href="#3-feladat-reversort-engineering" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<h3 id="feladatkiírás-2"><span class="me-2">Feladatkiírás</span><a href="#feladatkiírás-2" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>Ez az a feladat ami ugyanúgy indul mint a Reversort, azonban most felcserélődnek a szerepek: most az inputon kapjuk meg a lista hosszát és a costot és nekünk kell adni egy olyan listát aminek a sorrendezése ennyibe fog kerülni a Reversort használatával (vagy kiírni, hogy IMPOSSIBLE ha ilyet nem lehet).</p>
+
+<h3 id="megoldás-2"><span class="me-2">Megoldás</span><a href="#megoldás-2" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>Az első teszthalmaznál a lista hossza legfeljebb 7 lehet. Ez azért nagyon kényelmes, mert a 7!=5040 lehetséges sorrendet végig tudjuk próbálgatni egyesével, mindegyiken lefuttatni az 1. feladatra adott megoldásunkat és ahol az ottani cost egyezik az inputon megadottal, azt a sorrendet kiírni. Ha nincs ilyen, akkor pedig azt, hogy IMPOSSIBLE. Ez a teszthalmaz 7 pontot ér, nekünk pont ennyire van szükségünk, ezért ezzel a megoldással tulajdonképpen készen is vagyunk, itt befejezhetjük a versenyt.</p>
+
+<p>A második teszthalmaz már nehezebb, itt legfeljebb 100 lehet a lista hossza, 100! esetre már biztosan nem fog a brute force algoritmus időben lefutni. Mivel még volt elég sok idő vissza a versenyből, ezért úgy döntöttem, hogy kíváncsiságból megpróbálom ezt a teszthalmazt is megoldani.</p>
+
+<p>A megoldás kulcsa az, hogy visszafele gondolkozunk: kiindulunk a végeredményből, az N hosszú rendezett listából, visszafele iterálunk rajta és lépésenként “visszaforgatunk” benne általunk választott hosszúságú résztömböket, amíg el nem érünk a kiindulási, összekevert listába. Ha úgy választjuk meg a résztömbök hosszait, hogy azoknak az összege pont kiadja a costot, akkor a kapott kiindulási tömb a megoldás lesz. (Meg itt persze menet közben észre kell venni, ha lehetetlen a feladat.)</p>
+
+<p>Az első megfigyelés az az, hogy minden lépésben legalább 1 costot el fogunk használni, mivel azt írja a feladat, hogy ha pont az aktuális pozíción van a legkisebb elem, akkor is “megfordítjuk” azt az egyelemű részt. Mivel ez az n-1 db pozíción biztosan fel fog merülni költségként, ezért érdemes ezt már az elején levonni (lekönyvelni), hogy a további számolások során ne történhessen meg az, hogy minden costot elhasználtunk de még nem értünk el a lista elejére.</p>
+
+<p>Ennek a következménye, hogy a k hosszú lista megfordításának költsége innentől kezdve k-1 lesz, mert azt az 1-et már lekönyveltük.</p>
+
+<p>A következő megfigyelés pedig az, hogy hátulról visszafele adott pozíciókban a következő costokból választhatok:</p>
+
+<p>(Itt a tömböt 0…n-1 -el indexeljük, a Reversort a tömb utolsó elemére nem fut le, ezért visszafele az n-2. indexnél kezdünk.)</p>
+
+<ul>
+  <li>n-2. index: 0, ha az n-2. elemet helyben forgatom és 1, ha az n-2. és n-1. elemeket megcserélem.</li>
+  <li>n-3. index: 0,1,2, hasonlóan.</li>
+  <li>n-4. index: 0,1,2,3, hasonlóan.</li>
+</ul>
+
+<p>…</p>
+
+<ul>
+  <li>
+    <ol>
+      <li>index: 0,1,…,n-1.</li>
+    </ol>
+  </li>
+</ul>
+
+<p>A feladat tehát az, hogy a megadott costot rakjuk össze összegként úgy, hogy a fenti lépésekben mindenhol 1 számot választhatunk. Mivel minden lépésben tudunk bármilyen kicsi számot választani, ezért jó stratégia minden iterációban a maximumot választani, hogy minnél jobban csökkenjen a cost, kivéve ha azzal túllőnénk. Amennyiben a listában szereplő maximális érték már több, mint a hátralévő cost, akkor a cost-al egyenlő értéket választjuk ki a listából (ilyen biztosan van), a hátralévő iterációkban pedig mindig 0-t.</p>
+
+<p>Ezt az algoritmust implementáltam Pythonban:</p>
+
+<div class="language-python highlighter-rouge"><div class="code-header">
+        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -905,185 +1009,69 @@ for n_i in range(n):
 61
 62
 63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-</pre></td><td class="rouge-code"><pre>
-Ha minimalizálni szeretnénk a CJ-k és a JC-k darabszámát, akkor tulajdonképpen a váltakozásokat szeretnénk minimalizálni. Ha egyszerűen végigmegyek balról-jobbra a stringen és minden ? helyére beírom a tőle balra lévő karaktert (aki már nem lehet ?, mert az előző lépésben biztosan átírtam), illetve ha ? sorozattal kezdődik a string, akkor azok helyére balról az első nem-? karaktert, akkor pont egy ilyen minimalizált megoldást kapok. Ebben a C-kből és J-kből álló stringben kell megszámolni a CJ és JC részstringeket és kiírni a súlyozott összeget: ez egy jó megoldás lenne.
-
-Viszont ennél sokkal egyszerűbb csak törölni a ?-eket, hiszen a fenti módszer csak annyit csinál, hogy a ?-ek helyére "elcsúsztatja" valamelyik oldalról az első nem ? karaktert, tehát új váltakozást nem fog bevezetni, csak a meglévőket húzza össze egymás mellé.
-
-Például ezt az input stringet:
-
-`???JC??C??JCJ`
-
-Erre fogja átírni:
-
-`JJJJCCCCCCJCJ`
-
-De ebben pont ugyanannyi CJ és JC van, mint a kérdőjelek törlésével kapott stringben:
-
-`JCCJCJ`
-
-Ezt viszont egy kicsit könnyebb programozottan kiszámolni az inputból (`m.replace('?', '')`).
-
-Nyelvnek pedig itt szintén érdemes a Pythont választani, mert tömör és mert 10 mp-ünk van teszthalmazonként, ami bőven elég a fenti program lefuttatására.
-
-Ezzel szereztünk összesen 16 pontot, még 7 pontra van szükségünk.
-
-## 3\. Feladat: Reversort Engineering
-
-### Feladatkiírás
-
-Ez az a feladat ami ugyanúgy indul mint a Reversort, azonban most felcserélődnek a szerepek: most az inputon kapjuk meg a lista hosszát és a costot és nekünk kell adni egy olyan listát aminek a sorrendezése ennyibe fog kerülni a Reversort használatával (vagy kiírni, hogy IMPOSSIBLE ha ilyet nem lehet).
-
-### Megoldás
-
-Az első teszthalmaznál a lista hossza legfeljebb 7 lehet. Ez azért nagyon kényelmes, mert a 7!=5040 lehetséges sorrendet végig tudjuk próbálgatni egyesével, mindegyiken lefuttatni az 1. feladatra adott megoldásunkat és ahol az ottani cost egyezik az inputon megadottal, azt a sorrendet kiírni. Ha nincs ilyen, akkor pedig azt, hogy IMPOSSIBLE. Ez a teszthalmaz 7 pontot ér, nekünk pont ennyire van szükségünk, ezért ezzel a megoldással tulajdonképpen készen is vagyunk, itt befejezhetjük a versenyt.
-
-A második teszthalmaz már nehezebb, itt legfeljebb 100 lehet a lista hossza, 100! esetre már biztosan nem fog a brute force algoritmus időben lefutni. Mivel még volt elég sok idő vissza a versenyből, ezért úgy döntöttem, hogy kíváncsiságból megpróbálom ezt a teszthalmazt is megoldani.
-
-A megoldás kulcsa az, hogy visszafele gondolkozunk: kiindulunk a végeredményből, az N hosszú rendezett listából, visszafele iterálunk rajta és lépésenként "visszaforgatunk" benne általunk választott hosszúságú résztömböket, amíg el nem érünk a kiindulási, összekevert listába. Ha úgy választjuk meg a résztömbök hosszait, hogy azoknak az összege pont kiadja a costot, akkor a kapott kiindulási tömb a megoldás lesz. (Meg itt persze menet közben észre kell venni, ha lehetetlen a feladat.)
-
-Az első megfigyelés az az, hogy minden lépésben legalább 1 costot el fogunk használni, mivel azt írja a feladat, hogy ha pont az aktuális pozíción van a legkisebb elem, akkor is "megfordítjuk" azt az egyelemű részt. Mivel ez az n-1 db pozíción biztosan fel fog merülni költségként, ezért érdemes ezt már az elején levonni (lekönyvelni), hogy a további számolások során ne történhessen meg az, hogy minden costot elhasználtunk de még nem értünk el a lista elejére.
-
-Ennek a következménye, hogy a k hosszú lista megfordításának költsége innentől kezdve k-1 lesz, mert azt az 1-et már lekönyveltük.
-
-A következő megfigyelés pedig az, hogy hátulról visszafele adott pozíciókban a következő costokból választhatok:
-
-(Itt a tömböt 0...n-1 -el indexeljük, a Reversort a tömb utolsó elemére nem fut le, ezért visszafele az n-2. indexnél kezdünk.)
-
-- n-2. index: 0, ha az n-2. elemet helyben forgatom és 1, ha az n-2. és n-1. elemeket megcserélem.
-- n-3. index: 0,1,2, hasonlóan.
-- n-4. index: 0,1,2,3, hasonlóan.
-
-...
-
-- 0. index: 0,1,...,n-1.
-
-A feladat tehát az, hogy a megadott costot rakjuk össze összegként úgy, hogy a fenti lépésekben mindenhol 1 számot választhatunk. Mivel minden lépésben tudunk bármilyen kicsi számot választani, ezért jó stratégia minden iterációban a maximumot választani, hogy minnél jobban csökkenjen a cost, kivéve ha azzal túllőnénk. Amennyiben a listában szereplő maximális érték már több, mint a hátralévő cost, akkor a cost-al egyenlő értéket választjuk ki a listából (ilyen biztosan van), a hátralévő iterációkban pedig mindig 0-t.
-
-Ezt az algoritmust implementáltam Pythonban:
-
-```py linenums="1"
-# Input 1. sora: tesztesetek száma.
-z = int(input())
-for z_i in range(z):
-  # Teszteset 1. sora: elvárt lista hossza, elvárt cost értéke.
-  n, c = map(int, input().split(' '))
+</pre></td><td class="rouge-code"><pre><span class="c1"># Input 1. sora: tesztesetek száma.
+</span><span class="n">z</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">z_i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+  <span class="c1"># Teszteset 1. sora: elvárt lista hossza, elvárt cost értéke.
+</span>  <span class="n">n</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">(</span><span class="sh">'</span><span class="s"> </span><span class="sh">'</span><span class="p">))</span>
   
-  # Itt gyorsan kizárjuk a lehetetlen eseteket:
+  <span class="c1"># Itt gyorsan kizárjuk a lehetetlen eseteket:
+</span>  
+  <span class="c1"># Tudjuk, hogy a minimális cost n-1, ha ennél kevesebb a cél,
+</span>  <span class="c1"># akkor az lehetetlen.
+</span>  <span class="k">if</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Case #</span><span class="si">{</span><span class="n">z_i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s">: IMPOSSIBLE</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">continue</span>
+  <span class="c1"># A maximális cost minden lépésben a legnagyobb számot választani,
+</span>  <span class="c1"># ami az N,...,2 számok összege (1 nincs, mert az utolsó elemre
+</span>  <span class="c1"># nem fut le a Reversort).
+</span>  <span class="k">if</span> <span class="n">n</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Case #</span><span class="si">{</span><span class="n">z_i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s">: IMPOSSIBLE</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">continue</span>
+  <span class="c1"># A teszthalmazok leírásában benne van, hogy 2&lt;n, ez itt felesleges,
+</span>  <span class="c1"># csak nem vettem észre.
+</span>  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Case #</span><span class="si">{</span><span class="n">z_i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s">: 1</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">continue</span>
+  <span class="c1"># Ezen a ponton biztosan van megoldás:
+</span>  <span class="c1"># Lekönyveljük a biztos n-1 költséget.
+</span>  <span class="n">c</span> <span class="o">-=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
   
-  # Tudjuk, hogy a minimális cost n-1, ha ennél kevesebb a cél,
-  # akkor az lehetetlen.
-  if c &lt; n-1:
-    print(f"Case #{z_i+1}: IMPOSSIBLE")
-    continue
-  # A maximális cost minden lépésben a legnagyobb számot választani,
-  # ami az N,...,2 számok összege (1 nincs, mert az utolsó elemre
-  # nem fut le a Reversort).
-  if n*(n+1)/2-1 &lt; c:
-    print(f"Case #{z_i+1}: IMPOSSIBLE")
-    continue
-  # A teszthalmazok leírásában benne van, hogy 2&lt;n, ez itt felesleges,
-  # csak nem vettem észre.
-  if n == 1:
-    print(f"Case #{z_i+1}: 1")
-    continue
-  # Ezen a ponton biztosan van megoldás:
-  # Lekönyveljük a biztos n-1 költséget.
-  c -= (n-1)
-  
-  # Itt először előre kiszámolom a costokat (ez egyébként nem szükséges,
-  # menet közben is lehetne):
-  
-  # Ebben fogom tárolni, hogy az adott kezdőindexhez hol van a forgatandó
-  # résztömb vége.
-  torev = list(range(n))
-  # Itt előrefele megyek, majd a forgatásos ciklusban szükséges csak
-  # visszafele menni.
-  for i in range(n-1):
-    # Itt kiszámolom, hogy ebben a körben mennyi costot tudok elkönyvelni
-    # (vagy a leghosszabb lehetséges résztömb hosszát, vagy ha az túl sok,
-    # akkor a teljes hátralévő costot el tudom könyvelni).
-    j = min(n-1-i, c)
-    # Elmentem hol van a forgatott résztömb vége. Itt a +1/-1-eken kell
-    # egy kicsit agyalni, de így jön ki jól.
-    torev[i] = i + j
-    # Csökkentem a costot az ebben az iterációban elkönyvelt értékkel.
-    c -= j
+  <span class="c1"># Itt először előre kiszámolom a costokat (ez egyébként nem szükséges,
+</span>  <span class="c1"># menet közben is lehetne):
+</span>  
+  <span class="c1"># Ebben fogom tárolni, hogy az adott kezdőindexhez hol van a forgatandó
+</span>  <span class="c1"># résztömb vége.
+</span>  <span class="n">torev</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+  <span class="c1"># Itt előrefele megyek, majd a forgatásos ciklusban szükséges csak
+</span>  <span class="c1"># visszafele menni.
+</span>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># Itt kiszámolom, hogy ebben a körben mennyi costot tudok elkönyvelni
+</span>    <span class="c1"># (vagy a leghosszabb lehetséges résztömb hosszát, vagy ha az túl sok,
+</span>    <span class="c1"># akkor a teljes hátralévő costot el tudom könyvelni).
+</span>    <span class="n">j</span> <span class="o">=</span> <span class="nf">min</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="c1"># Elmentem hol van a forgatott résztömb vége. Itt a +1/-1-eken kell
+</span>    <span class="c1"># egy kicsit agyalni, de így jön ki jól.
+</span>    <span class="n">torev</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span>
+    <span class="c1"># Csökkentem a costot az ebben az iterációban elkönyvelt értékkel.
+</span>    <span class="n">c</span> <span class="o">-=</span> <span class="n">j</span>
     
-  # Itt pedig visszafele lejátszom a fent kiszámolt forgatásokat és
-  # legenerálom a kiindulási tömböt:
-  
-  # Kiindulunk az n hosszú rendezett listából.
-  l = list(range(1,n+1))
-  # i=n-2...0
-  for i in range(n-2,-1,-1):
-    # Forgatandó lista vége.
-    j = torev[i]
-    # Még több +1/-1 fejfájás.
-    l[i:j+1] = reversed(l[i:j+1])
+  <span class="c1"># Itt pedig visszafele lejátszom a fent kiszámolt forgatásokat és
+</span>  <span class="c1"># legenerálom a kiindulási tömböt:
+</span>  
+  <span class="c1"># Kiindulunk az n hosszú rendezett listából.
+</span>  <span class="n">l</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+  <span class="c1"># i=n-2...0
+</span>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># Forgatandó lista vége.
+</span>    <span class="n">j</span> <span class="o">=</span> <span class="n">torev</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="c1"># Még több +1/-1 fejfájás.
+</span>    <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nf">reversed</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
     
-  # Eredmény kiírása:
-  
-  st = " ".join(map(str, l))
-  print(f"Case #{z_i+1}: {st}")
+  <span class="c1"># Eredmény kiírása:
+</span>  
+  <span class="n">st</span> <span class="o">=</span> <span class="sh">"</span><span class="s"> </span><span class="sh">"</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="nf">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">l</span><span class="p">))</span>
+  <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Case #</span><span class="si">{</span><span class="n">z_i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">st</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
 </pre></td></tr></tbody></table></code></div></div>
 
 <p>Itt sokféleképpen lehetne számolni, tulajdonképpen az n-1 előre lekönyvelése sem szükséges, menet közben is észre lehetne venni ha kifogytunk a megengedett costból. Ezen a kódon még sokat lehetne egyszerűsíteni. :)</p>
