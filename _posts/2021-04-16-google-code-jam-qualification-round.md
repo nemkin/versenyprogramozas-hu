@@ -33,7 +33,7 @@ Ez az operáció a listának egy összefüggő részét tudja megfordítani, a k
 
 (A tömbök indexelése 1-től kezdődik.)
 
-```plain linenums="1"
+```
 Reversort(L):
   for i := 1 to len(L) - 1
     j := L[i..]-ben a minimum érték indexe
@@ -61,7 +61,7 @@ Nyelvnek a Pythont választottam a tömörsége és a pszeudokódhoz hasonló sz
 
 A következő kódot adtam be (a kommentek nélkül):
 
-```py linenums="1"
+```python
 n = int(input()) # Input 1. sora: tesztesetek száma
 for n_i in range(n):
   cost = 0
@@ -95,7 +95,7 @@ A 3. teszthalmaz (1 pontért) azonban nagyon nem szimpatikus. Csak 1 pontot ér,
 
 Az első két teszthalmazra a következő Python kódot adtam be:
 
-```py linenums="1"
+```python
 n = int(input())
 for n_i in range(n):
   x, y, m = input().split()
@@ -163,7 +163,7 @@ A feladat tehát az, hogy a megadott costot rakjuk össze összegként úgy, hog
 
 Ezt az algoritmust implementáltam Pythonban:
 
-```py linenums="1"
+```python
 # Input 1. sora: tesztesetek száma.
 z = int(input())
 for z_i in range(z):
